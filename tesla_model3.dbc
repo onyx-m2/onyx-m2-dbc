@@ -8,7 +8,7 @@ CM_ "Oct 2019: Added unix and system time signals";
 CM_ "May 2020: Added many definitions adapted from joshwardell's file";
 CM_ "Jul 2020: Energy buffers update for 2020.20.X";
 CM_ "Jul 2020: Updates for 2020.24.X";
-CM_ "Nov 2020: Updates for 2020.40.X"; UI_status moved to 851
+CM_ "Nov 2020: Updates for 2020.40.X, UI_status moved from 12 to 851";
 
 CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/4fc040286b1f64adcf826dd82a322ec88df64402"
 
@@ -11431,10 +11431,10 @@ VAL_ 723 UI_solarAzimuthAngle -32768 "SNA";
 VAL_ 723 UI_solarAzimuthAngleCarRef 255 "SNA";
 VAL_ 723 UI_solarElevationAngle 127 "SNA";
 
-VAL_ 12 UI_autopilotTrial 0 "NONE" 1 "START" 2 "STOP" 3 "ACTIVE";
-VAL_ 12 UI_cellNetworkTechnology 0 "NONE" 1 "GPRS" 2 "EDGE" 3 "UMTS" 4 "HSDPA" 5 "HSUPA" 6 "HSPA" 7 "LTE" 15 "SNA";
-VAL_ 12 UI_cellSignalBars 0 "ZERO" 1 "ONE" 2 "TWO" 3 "THREE" 4 "FOUR" 5 "FIVE" 7 "SNA";
-VAL_ 12 UI_factoryReset 0 "NONE_SNA" 1 "DEVELOPER" 2 "DIAGNOSTIC" 3 "CUSTOMER";
+VAL_ 851 UI_autopilotTrial 0 "NONE" 1 "START" 2 "STOP" 3 "ACTIVE";
+VAL_ 851 UI_cellNetworkTechnology 0 "NONE" 1 "GPRS" 2 "EDGE" 3 "UMTS" 4 "HSDPA" 5 "HSUPA" 6 "HSPA" 7 "LTE" 15 "SNA";
+VAL_ 851 UI_cellSignalBars 0 "ZERO" 1 "ONE" 2 "TWO" 3 "THREE" 4 "FOUR" 5 "FIVE" 7 "SNA";
+VAL_ 851 UI_factoryReset 0 "NONE_SNA" 1 "DEVELOPER" 2 "DIAGNOSTIC" 3 "CUSTOMER";
 
 VAL_ 856 UI_TPMSLearnIDMode 0 "NO_ID_LEARN_FUNCTION" 1 "AUTO_LEARN_ACTIVE_BY_MANUAL" 2 "AUTO_LOCATION_ACTIVE_BY_MANUAL" 3 "AUTO_LEARN_ACTIVE_AFTER_PWR" 4 "AUTO_LOCATION_ACTIVE_AFTER_PWR";
 VAL_ 856 UI_TPMSMode 0 "UNUSED_MODE" 1 "NORMAL_MODE" 2 "PERFORMANCE_MODE";
