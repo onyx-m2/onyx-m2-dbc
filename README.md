@@ -21,9 +21,15 @@ in the car's signals. The version number at the top of the file refers to the ca
 software build the updates were tested on. This obviously isn't a guaranty that the
 data is correct.
 
-## Credits
+I've got a webhook setup on this repo to automatically redeploy my instance of the
+server when the dbc file updated on master. If you want to do the same for your
+server, you could fork this repo and set that up. This would also allow you to update
+on your schedule (which might be good if our cars don't get software updates at the
+same time).
 
-Most of the community work to decode the signals is discussed at in the mega-thread
+## Credit
+
+Most of the community work to decode the signals is discussed in the mega-thread
 https://teslaownersonline.com/threads/diagnostic-port-and-data-access.7502/.
 
 Much of the investigation work was performed by Josh Wardell, and he maintains his
