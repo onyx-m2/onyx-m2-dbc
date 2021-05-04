@@ -7958,7 +7958,7 @@ BO_ 705 VCFRONT_logging10Hz: 8 VEH
  SG_ VCFRONT_usingSimulatedDischTemp m3 : 56|1@1+ (1,0) [0|1] "" X
  SG_ VCFRONT_usingSimulatedSuctTemp m3 : 55|1@1+ (1,0) [0|1] "" X
 
-BO_ 897 ID381VCFRONT_logging1Hz: 8 VEH
+BO_ 897 VCFRONT_logging1Hz: 8 VEH
  SG_ VCFRONT_logging1HzIndex M : 0|5@1+ (1,0) [0|19] ""  Receiver
  SG_ VCFRONT_CCQdotActual m9 : 21|7@1+ (80,0) [0|10100] "W"  Receiver
  SG_ VCFRONT_CCQdotFdFrwrdTarget m9 : 7|7@1+ (80,0) [0|10100] "W"  Receiver
@@ -10709,7 +10709,7 @@ VAL_ 599 DI_uiSpeedUnits 0 "MPH" 1 "KPH";
 VAL_ 599 DI_vehicleSpeed 4095 "SNA";
 
 VAL_ 616 DI_sysDrivePowerMax 511 "SNA";
-VAL_ 616 DI_sysRegenPowerMax 255 "SNA";
+VAL_ 616 DI_sysRegenPowerMax 155 "SNA";
 
 VAL_ 280 DI_accelPedalPos 255 "SNA";
 VAL_ 280 DI_brakePedalState 0 "OFF" 1 "ON" 2 "INVALID";
