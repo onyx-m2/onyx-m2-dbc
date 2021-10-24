@@ -1,4 +1,4 @@
-VERSION "2020.40.1"
+VERSION "2021.24.4"
 BS_:
 BU_:
 
@@ -9,8 +9,65 @@ CM_ "May 2020: Added many definitions adapted from joshwardell's file";
 CM_ "Jul 2020: Energy buffers update for 2020.20.X";
 CM_ "Jul 2020: Updates for 2020.24.X";
 CM_ "Nov 2020: Updates for 2020.40.X, UI_status moved from 12 to 851";
+CM_ "Oct 2021: Updates for 2021.24.4";
 
-CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/4fc040286b1f64adcf826dd82a322ec88df64402"
+CM_ "TODO: figure out what up with inverter temp; my old ones still for me, but others have them at 1493(R) and 1366(F) now"
+
+CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/c7ad5d0d7413a3735c4f4368bfc116f68191bfc8";
+
+BO_ 22 DI_bmsRequest: 1 VEH
+ SG_ DI_bmsOpenContactorsRequest : 4|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_bmsRequestInterfaceVersion : 0|4@1+ (1,0) [0|15] ""  Receiver
+
+BO_ 470 DI_limits: 5 VEH
+ SG_ DI_limitBaseSpeed : 15|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitClutch : 28|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitDcCapTemp : 17|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitDeltaFluidTemp : 5|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitDiff : 22|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitDischargePower : 6|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitDriveTorque : 10|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitGracefulPowerOff : 23|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitIBat : 16|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitIGBTJunctTemp : 24|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitInverterTemp : 1|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitLimpMode : 4|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitMotorCurrent : 8|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitMotorSpeed : 20|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitMotorVoltage : 9|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitObstacleDetection : 29|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitOilPumpFluidTemp : 26|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitPCBTemp : 0|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitPoleTemp : 3|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitRegenPower : 7|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitRegenTorque : 11|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitRotorTemp : 36|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitShift : 14|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitShockTorque : 25|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitStatorFrequency : 27|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitStatorTemp : 2|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitTCDrive : 12|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitTCRegen : 13|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitVBatHigh : 19|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitVBatLow : 18|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitVehicleSpeed : 21|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitdcLinkCapTemp : 33|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limithvDcCableTemp : 37|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitnegDcBusbarTemp : 34|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitphaseOutBusBarWeldTemp : 31|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitphaseOutBusbarTemp : 30|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitphaseOutLugTemp : 32|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ DI_limitposDcBusbarTemp : 35|1@1+ (1,0) [0|1] ""  Receiver
+
+CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/c61be330c24e252ec5e422d050394a1345f5e181";
+
+BO_ 641 VCFRONT_compressorRequest: 8 VEH
+ SG_ VCFRONT_compressorTargetDuty : 0|16@1+ (0.1,0) [0|100] "%"  Receiver
+ SG_ VCFRONT_compressorPowerLimit : 16|16@1+ (1,0) [0|65534] "W"  Receiver
+ SG_ VCFRONT_compressorReset : 32|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ VCFRONT_compressorEnable : 40|1@1+ (1,0) [0|1] ""  Receiver
+
+CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/4fc040286b1f64adcf826dd82a322ec88df64402";
 
 BO_ 603 APP_environment: 1 CH
  SG_ APP_environmentRainy : 0|1@1+ (1,0) [0|1] "" X
@@ -40,7 +97,7 @@ BO_ 322 VCLEFT_liftgateStatus: 8 VEH
  SG_ VCLEFT_liftgateLatchRequest m0 : 61|3@1+ (1,0) [0|4] "" X
  SG_ VCLEFT_liftgateMvmntNotAllowedCo m0 : 14|3@1+ (1,0) [0|5] "" X
  SG_ VCLEFT_liftgatePhysicalChimeRequ m0 : 21|3@1+ (1,0) [0|4] "" X
- SG_ VCLEFT_liftgatePosition m1 : 21|7@1- (1,33) [-5|70] "deg" X
+ SG_ VCLEFT_liftgatePosition m1 : 21|7@1- (1,46) [-5|95] "deg" X
  SG_ VCLEFT_liftgatePositionCalibrate m0 : 17|1@1+ (1,0) [0|1] "" X
  SG_ VCLEFT_liftgateRequestSource m0 : 7|3@1+ (1,0) [0|7] "" X
  SG_ VCLEFT_liftgateSpeed m1 : 28|10@1- (0.1,0) [-30|30] "deg/s" X
@@ -209,6 +266,7 @@ BO_ 1029 VIN_info: 8 VEH
  SG_ VIN_A405 m16 : 8|56@1+ (1,0) [0|7.2057594038E+016] "" X
 
 CM_ "Individual brick voltages are no longer available?";
+CM_ "These came back in some update after 2020.40.X at the same place";
 BO_ 1025 BMS_brickVoltages: 8 VEH
  SG_ BMS_brickIndex M : 0|8@1+ (1,0) [0|0] ""  Receiver
  SG_ BMS_brickStatus : 8|8@1+ (1,0) [0|0] ""  Receiver
@@ -4386,7 +4444,7 @@ BO_ 535 FC_status3: 8 VEH
 BO_ 888 GTW_ECall: 1 VEH
  SG_ GTW_GSM_ECALL_nLOCK: 0|1@1+ (1,0) [0|0] "" X
 
-CM_ 273 is RCM_inertial2 now
+CM_ "273 is RCM_inertial2 now";
 CM_ BO_ 273 GTW_adc: 7 VEH
 CM_  SG_ GTW_12V0_AUDIO_FILT: 0|14@0+ (11,0) [0|0] "mV" X
 CM_  SG_ GTW_12V0_FILT: 16|14@0+ (11,0) [0|0] "mV" X
@@ -6114,6 +6172,7 @@ BO_ 257 RCM_inertial1: 8 CH
  SG_ RCM_yawRate: 0|16@1- (0.0001,0) [0|0] "rad/s" X
  SG_ RCM_yawRateQF: 48|1@1+ (1,0) [0|0] "" X
 
+CM_ "TODO: jwardell has a RCM_inertial2New at 278, verify this"
 BO_ 273 RCM_inertial2: 8 CH
  SG_ RCM_inertial2Checksum : 56|8@1+ (1,0) [0|255] "" X
  SG_ RCM_inertial2Counter : 52|4@1+ (1,0) [0|15] "" X
