@@ -3183,7 +3183,7 @@ BO_ 886 DI_frontInverterTemperature: 8 VEH
  SG_ DI_frontInverterTQF: 56|2@1+ (1,0) [0|0] "" X
 
 BO_ 789 DI_temperature: 8 VEH
- SG_ DI_temperatureIndex M: 0|1@1+ [0|0] "" X
+ SG_ DI_temperatureIndex M: 0|1@1+ (1,0) [0|1] "" X
  CM_ SG_ DI_pcbT: 0|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_inverterT m0: 8|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_statorT m0: 16|8@1+ (1,-40) [0|0] "DegC" X
