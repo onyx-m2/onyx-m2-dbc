@@ -15,10 +15,12 @@ CM_ "TODO: figure out what up with inverter temp; my old ones still for me, but 
 
 CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/c7ad5d0d7413a3735c4f4368bfc116f68191bfc8";
 
+CM_ "Not getting anything on this one on SR+ (2021.36.5.1)";
 BO_ 22 DI_bmsRequest: 1 VEH
  SG_ DI_bmsOpenContactorsRequest : 4|1@1+ (1,0) [0|1] ""  Receiver
  SG_ DI_bmsRequestInterfaceVersion : 0|4@1+ (1,0) [0|15] ""  Receiver
 
+CM_ "Not getting anything on this one on SR+ (2021.36.5.1)";
 BO_ 470 DI_limits: 5 VEH
  SG_ DI_limitBaseSpeed : 15|1@1+ (1,0) [0|1] ""  Receiver
  SG_ DI_limitClutch : 28|1@1+ (1,0) [0|1] ""  Receiver
@@ -3181,14 +3183,15 @@ BO_ 886 DI_frontInverterTemperature: 8 VEH
  SG_ DI_frontInverterTQF: 56|2@1+ (1,0) [0|0] "" X
 
 BO_ 789 DI_temperature: 8 VEH
- SG_ DI_pcbT: 0|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_inverterT: 8|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_statorT: 16|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_dcCapT: 24|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_heatsinkT: 32|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_inverterTpct: 40|8@1+ (0.4,0) [0|0] "%" X
- SG_ DI_statorTpct: 48|8@1+ (0.4,0) [0|0] "%" X
- SG_ DI_inverterTQF: 56|2@1+ (1,0) [0|3] "" X
+ SG_ DI_temperatureIndex 0|1@ [0|0] "" X
+ SG_ DI_pcbT M: 0|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_inverterT m0: 8|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_statorT m0: 16|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_dcCapT m0: 24|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_heatsinkT m0: 32|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_inverterTpct m0: 40|8@1+ (0.4,0) [0|0] "%" X
+ SG_ DI_statorTpct m0: 48|8@1+ (0.4,0) [0|0] "%" X
+ SG_ DI_inverterTQF m0: 56|2@1+ (1,0) [0|3] "" X
 
 BO_ 886 DI_frontTemperature: 8 VEH
  SG_ DI_frontDcCapT: 24|8@1+ (1,-40) [0|0] "DegC" X
