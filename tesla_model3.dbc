@@ -1017,13 +1017,14 @@ BO_ 722 BMS_driveLimits: 8 VEH
  SG_ BMS_minBusVoltage: 0|16@1+ (0.01,0) [0|0] "V" X
 
 BO_ 850 BMS_energyStatus: 8 VEH
- SG_ BMS_energyBuffer: 55|8@1+ (0.1,0) [0|0] "KWh" X
- SG_ BMS_energyToChargeComplete: 44|11@1+ (0.1,0) [0|0] "KWh" X
- SG_ BMS_expectedEnergyRemaining: 22|11@1+ (0.1,0) [0|0] "KWh" X
- SG_ BMS_idealEnergyRemaining: 33|11@1+ (0.1,0) [0|0] "KWh" X
- SG_ BMS_nominalEnergyRemaining: 11|11@1+ (0.1,0) [0|0] "KWh" X
- SG_ BMS_nominalFullPackEnergy: 0|11@1+ (0.1,0) [0|0] "KWh" X
- SG_ BMS_fullyCharged : 63|1@1+ (1,0) [0|1] "" X
+ SG_ BMS_energyStatusIndex M : 0|2@1+ (1,0) [0|0] "" X
+ SG_ BMS_nominalFullPackEnergy m0 : 16|16@1+ (0.02,0) [0|0] "kWh" X
+ SG_ BMS_nominalEnergyRemaining m0 : 32|16@1+ (0.02,0) [0|0] "kWh" X
+ SG_ BMS_idealEnergyRemaining m0 : 48|16@1+ (0.02,0) [0|0] "kWh" X
+ SG_ BMS_fullyCharged m1 : 15|1@1+ (1,0) [0|1] "" X
+ SG_ BMS_energyBuffer m1 : 16|16@1+ (0.01,0) [0|0] "kWh" X
+ SG_ BMS_expectedEnergyRemaining m1 : 32|16@1+ (0.02,0) [0|0] "kWh" X
+ SG_ BMS_energyToChargeComplete m1 : 48|16@1+ (0.02,0) [0|0] "kWh" X
 
 BO_ 306 BMS_hvBusStatus: 8 VEH
  SG_ BMS_chgTimeToFull: 48|12@1+ (0.0166667,0) [0|0] "Hours" X
@@ -3066,17 +3067,6 @@ BO_ 280 DI_systemStatus: 8 VEH
  SG_ DI_trackModeState: 48|2@1+ (1,0) [0|0] "" X
  SG_ DI_tractionControlMode: 40|3@1+ (1,0) [0|0] "" X
 
-BO_ 886 DI_frontInverterTemperature: 8 VEH
- SG_ DI_frontDcCapT: 24|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_frontHeatsinkT: 32|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_frontInverterT: 8|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_frontInverterTQF: 56|2@1+ (1,0) [0|0] "" X
- SG_ DI_frontInverterTpct: 40|8@1+ (0.4,0) [0|0] "%" X
- SG_ DI_frontPcbT: 0|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_frontStatorT: 16|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_frontStatorTpct: 48|8@1+ (0.4,0) [0|0] "%" X
- SG_ DI_frontInverterTQF: 56|2@1+ (1,0) [0|0] "" X
-
 BO_ 789 DI_temperature: 8 VEH
  SG_ DI_temperatureIndex M: 0|1@1+ (1,0) [0|1] "" X
  SG_ DI_inverterT m0: 8|8@1+ (1,-40) [0|0] "DegC" X
@@ -3088,14 +3078,14 @@ BO_ 789 DI_temperature: 8 VEH
  SG_ DI_inverterTQF m0: 56|2@1+ (1,0) [0|3] "" X
 
 BO_ 886 DI_frontTemperature: 8 VEH
+ SG_ DI_frontPcbT: 0|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_frontInverterT: 8|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_frontStatorT: 16|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_frontDcCapT: 24|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_frontHeatsinkT: 32|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_frontInverterT: 8|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_frontInverterTQF: 56|2@1+ (1,0) [0|0] "" X
  SG_ DI_frontInverterTpct: 40|8@1+ (0.4,0) [0|0] "%" X
- SG_ DI_frontPcbT: 0|8@1+ (1,-40) [0|0] "DegC" X
- SG_ DI_frontStatorT: 16|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_frontStatorTpct: 48|8@1+ (0.4,0) [0|0] "%" X
+ SG_ DI_frontInverterTQF: 56|2@1+ (1,0) [0|0] "" X
 
 BO_ 1367 DI_frontThermalControl: 4 VEH
  SG_ DI_frontActiveInletTempReq : 8|8@1+ (1,-40) [-40|120] "C" X
@@ -3103,7 +3093,7 @@ BO_ 1367 DI_frontThermalControl: 4 VEH
  SG_ DI_frontOilFlowReq : 24|8@1+ (0.06,0) [0|15] "LPM" X
  SG_ DI_frontPassiveInletTempReq : 0|8@1+ (1,-40) [-40|120] "C" X
 
-BO_ 1495 DI_thermalControl: 3 VEH
+BO_ 1495 DI_thermalControl: 4 VEH
  SG_ DI_activeInletTempReq: 8|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_coolantFlowReq: 16|8@1+ (0.2,0) [0|0] "LPM" X
  SG_ DI_oilFlowReq : 24|8@1+ (0.06,0) [0|15] "LPM" X
@@ -6596,6 +6586,16 @@ BO_ 799 TPMS_data: 8 CH
  SG_ TPMS_temperatureFR: 24|8@1+ (1,-40) [0|0] "degC" X
  SG_ TPMS_temperatureRL: 40|8@1+ (1,-40) [0|0] "degC" X
  SG_ TPMS_temperatureRR: 56|8@1+ (1,-40) [0|0] "degC" X
+
+BO_ 602 TPMS_bluetoothData: 8 CH
+SG_ TPMS_btPressureFL : 0|8@1+ (0.025,0) [0|6.375] "bar" X
+SG_ TPMS_btPressureFR : 8|8@1+ (0.025,0) [0|6.375] "bar" X
+SG_ TPMS_btPressureRL : 16|8@1+ (0.025,0) [0|6.375] "bar" X
+SG_ TPMS_btPressureRR : 24|8@1+ (0.025,0) [0|6.375] "bar" X
+SG_ TPMSFLunknown : 32|8@1+ (1,0) [0|0] "" X
+SG_ TPMSFRunknown : 40|8@1+ (1,0) [0|0] "" X
+SG_ TPMSRLunknown : 48|8@1+ (1,0) [0|0] "" X
+SG_ TPMSRRunknown : 56|8@1+ (1,0) [0|0] "" X
 
 BO_ 1519 TPMS_info: 8 CH
  SG_ TPMS_infoIndex M: 0|8@1+ (1,0) [0|0] "" X
