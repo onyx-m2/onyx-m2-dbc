@@ -1,26 +1,43 @@
 VERSION "2021.24.4"
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
 BS_:
-BU_:
 
-CM_ "Signals and messages that were moved or deprecated are commented out below";
-CM_ "Change log";
-CM_ "Oct 2019: Added unix and system time signals";
-CM_ "May 2020: Added many definitions adapted from joshwardell's file";
-CM_ "Jul 2020: Energy buffers update for 2020.20.X";
-CM_ "Jul 2020: Updates for 2020.24.X";
-CM_ "Nov 2020: Updates for 2020.40.X, UI_status moved from 12 to 851";
-CM_ "Oct 2021: Updates for 2021.24.4";
+BU_: VEH CH Receiver X
 
-CM_ "TODO: figure out what up with inverter temp; my old ones still for me, but others have them at 1493(R) and 1366(F) now"
-
-CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/c7ad5d0d7413a3735c4f4368bfc116f68191bfc8";
-
-CM_ "Not getting anything on this one on SR+ (2021.36.5.1)";
 BO_ 22 DI_bmsRequest: 1 VEH
  SG_ DI_bmsOpenContactorsRequest : 4|1@1+ (1,0) [0|1] ""  Receiver
  SG_ DI_bmsRequestInterfaceVersion : 0|4@1+ (1,0) [0|15] ""  Receiver
 
-CM_ "Not getting anything on this one on SR+ (2021.36.5.1)";
 BO_ 470 DI_limits: 5 VEH
  SG_ DI_limitBaseSpeed : 15|1@1+ (1,0) [0|1] ""  Receiver
  SG_ DI_limitClutch : 28|1@1+ (1,0) [0|1] ""  Receiver
@@ -61,15 +78,11 @@ BO_ 470 DI_limits: 5 VEH
  SG_ DI_limitphaseOutLugTemp : 32|1@1+ (1,0) [0|1] ""  Receiver
  SG_ DI_limitposDcBusbarTemp : 35|1@1+ (1,0) [0|1] ""  Receiver
 
-CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/c61be330c24e252ec5e422d050394a1345f5e181";
-
 BO_ 641 VCFRONT_compressorRequest: 8 VEH
  SG_ VCFRONT_compressorTargetDuty : 0|16@1+ (0.1,0) [0|100] "%"  Receiver
  SG_ VCFRONT_compressorPowerLimit : 16|16@1+ (1,0) [0|65534] "W"  Receiver
  SG_ VCFRONT_compressorReset : 32|8@1+ (1,0) [0|255] ""  Receiver
  SG_ VCFRONT_compressorEnable : 40|1@1+ (1,0) [0|1] ""  Receiver
-
-CM_ "New messages from https://github.com/joshwardell/model3dbc/commit/4fc040286b1f64adcf826dd82a322ec88df64402";
 
 BO_ 603 APP_environment: 1 CH
  SG_ APP_environmentRainy : 0|1@1+ (1,0) [0|1] "" X
@@ -87,13 +100,6 @@ BO_ 615 DI_vehicleEstimates: 8 VEH
  SG_ DI_vehicleEstimatesChecksum : 40|8@1+ (1,0) [0|255] ""  Receiver
  SG_ DI_vehicleEstimatesCounter : 13|3@1+ (1,0) [0|7] ""  Receiver
 
-VAL_ 615 DI_massConfidence 1 "MASS_CONFIDED" 0 "MASS_NOT_CONFIDED" ;
-VAL_ 615 DI_relativeTireTreadDepth -32 "SNA" ;
-VAL_ 615 DI_tireFitment 3 "FITMENT_SNA" 0 "FITMENT_SQUARE" 1 "FITMENT_STAGGERED" ;
-VAL_ 615 DI_trailerDetected 1 "TRAILER_DETECTED" 0 "TRAILER_NOT_DETECTED" ;
-
-CM_ "Updates from https://github.com/joshwardell/model3dbc/commit/699826c0fbba074d227f9d5ecc83d1e7545a80ab"
-
 BO_ 322 VCLEFT_liftgateStatus: 8 VEH
  SG_ VCLEFT_liftgateStatusIndex M : 0|2@1+ (1,0) [0|2] "" X
  SG_ VCLEFT_liftgateLatchRequest m0 : 61|3@1+ (1,0) [0|4] "" X
@@ -110,6 +116,7 @@ BO_ 322 VCLEFT_liftgateStatus: 8 VEH
  SG_ VCLEFT_liftgateUIChimeRequest m0 : 18|3@1+ (1,0) [0|4] "" X
 
 BO_ 537 VCSEC_TPMSData: 5 CH
+ SG_ VCSEC_TPMSDataIndex M : 0|2@1+ (1,0) [0|3] ""  Receiver
  SG_ VCSEC_TPMSBatVoltage0 m0 : 24|8@1+ (0.01,1.5) [1.5|4.04] "V" X
  SG_ VCSEC_TPMSBatVoltage1 m1 : 24|8@1+ (0.01,1.5) [1.5|4.04] "V" X
  SG_ VCSEC_TPMSBatVoltage2 m2 : 24|8@1+ (0.01,1.5) [1.5|4.04] "V" X
@@ -144,23 +151,6 @@ BO_ 1066 VCSEC_TPMSConnectionData: 8 VEH
  SG_ VCSEC_TPMSSensorState1 : 15|3@1+ (1,0) [0|4] "" X
  SG_ VCSEC_TPMSSensorState2 : 30|3@1+ (1,0) [0|4] "" X
  SG_ VCSEC_TPMSSensorState3 : 45|3@1+ (1,0) [0|4] "" X
-
-CM_ "Message id is now used by CP_status";
-CM_ BO_ 605 APP_trafficControl: 6 VEH
-CM_  SG_ APP_tcConfirmationType : 31|2@1+ (1,0) [0|2] "" X
-CM_  SG_ APP_tcContinuationReason : 27|4@1+ (1,0) [0|14] "" X
-CM_  SG_ APP_tcControlDistance : 16|8@1+ (1,0) [0|255] "m" X
-CM_  SG_ APP_tcControlLightState : 24|3@1+ (1,0) [0|6] "" X
-CM_  SG_ APP_tcControlSource : 9|2@1+ (1,0) [0|3] "" X
-CM_  SG_ APP_tcControlType : 11|5@1+ (1,0) [0|22] "" X
-CM_  SG_ APP_tcFeatureState : 0|2@1+ (1,0) [0|3] "" X
-CM_  SG_ APP_tcStateMachine : 2|3@1+ (1,0) [0|6] "" X
-CM_  SG_ APP_tcUnavailableReason : 38|3@1+ (1,0) [0|7] "" X
-CM_  SG_ APP_tcVisionLight : 42|1@1+ (1,0) [0|1] "" X
-CM_  SG_ APP_tcVisionLine : 45|1@1+ (1,0) [0|1] "" X
-CM_  SG_ APP_tcVisionRoadMarking : 44|1@1+ (1,0) [0|1] "" X
-CM_  SG_ APP_tcVisionSign : 43|1@1+ (1,0) [0|1] "" X
-CM_  SG_ APP_tcWarningSuppressionReason : 33|5@1+ (1,0) [0|17] "" X
 
 BO_ 994 VCLEFT_lightStatus: 7 VEH
  SG_ VCLEFT_FLMapLightStatus : 6|2@1+ (1,0) [0|3] "" X
@@ -267,8 +257,6 @@ BO_ 1029 VIN_info: 8 VEH
  SG_ VIN_C405 m18 : 8|56@1+ (1,0) [0|7.2057594038E+016] "" X
  SG_ VIN_A405 m16 : 8|56@1+ (1,0) [0|7.2057594038E+016] "" X
 
-CM_ "Individual brick voltages are no longer available?";
-CM_ "These came back in some update after 2020.40.X at the same place";
 BO_ 1025 BMS_brickVoltages: 8 VEH
  SG_ BMS_brickIndex M : 0|8@1+ (1,0) [0|0] ""  Receiver
  SG_ BMS_brickStatus : 8|8@1+ (1,0) [0|0] ""  Receiver
@@ -381,10 +369,6 @@ BO_ 1025 BMS_brickVoltages: 8 VEH
  SG_ BMS_brick106 m35 : 32|16@1+ (0.0001,0) [0|0] "V"  Receiver
  SG_ BMS_brick107 m35 : 48|16@1+ (0.0001,0) [0|0] "V"  Receiver
 
-CM_ "Also updated UI_autopilotControl, UI_gpsVehicleSpeed, UI_hvacRequest, UI_vehicleControl2, VCFRONT_logging10Hz, VCFRONT_status, VCFRONT_vehicleStatus, VCRIGHT_hvacStatus, VCRIGHT_hvacRequest, VCRIGHT_logging1Hz, VCFRONT_logging1Hz, GTW_carConfig";
-
-CM_ "Start of time updates";
-
 BO_ 792 UTC_systemTime: 8 VEH
  SG_ UTC_year: 0|8@1+ (1,0) [0|0] "" X
  SG_ UTC_month: 8|8@1+ (1,0) [0|0] "" X
@@ -397,8 +381,6 @@ BO_ 792 UTC_systemTime: 8 VEH
 
 BO_ 1320 UTC_unixTime: 4 VEH
  SG_ UTC_unixTime : 0|32@0+ (1,0) [0|0] "sec" X
-
-CM_ "End of time updates";
 
 BO_ 600 APB_status: 8 CH
  SG_ APB_statusChecksum: 56|8@1+ (1,0) [0|0] "" X
@@ -1036,7 +1018,6 @@ BO_ 722 BMS_driveLimits: 8 VEH
 
 BO_ 850 BMS_energyStatus: 8 VEH
  SG_ BMS_energyBuffer: 55|8@1+ (0.1,0) [0|0] "KWh" X
- SG_ BMS_energyCounter: 64|4@1+ (1,0) [0|0] "" X
  SG_ BMS_energyToChargeComplete: 44|11@1+ (0.1,0) [0|0] "KWh" X
  SG_ BMS_expectedEnergyRemaining: 22|11@1+ (0.1,0) [0|0] "KWh" X
  SG_ BMS_idealEnergyRemaining: 33|11@1+ (0.1,0) [0|0] "KWh" X
@@ -1044,19 +1025,9 @@ BO_ 850 BMS_energyStatus: 8 VEH
  SG_ BMS_nominalFullPackEnergy: 0|11@1+ (0.1,0) [0|0] "KWh" X
  SG_ BMS_fullyCharged : 63|1@1+ (1,0) [0|1] "" X
 
-VAL_ 850 BMS_energyBuffer 255 "SNA" ;
-VAL_ 850 BMS_energyToChargeComplete 2047 "SNA" ;
-VAL_ 850 BMS_expectedEnergyRemaining 2047 "SNA" ;
-VAL_ 850 BMS_idealEnergyRemaining 2047 "SNA" ;
-VAL_ 850 BMS_nominalEnergyRemaining 2047 "SNA" ;
-VAL_ 850 BMS_nominalFullPackEnergy 2047 "SNA" ;
-
-CM_ SG_ 390 BMS_currentUnfiltered "changed offset from -1000 to 0";
-CM_ SG_ 390 BMS_packCurrent  "changed offset from -1000 to 0";
-
 BO_ 306 BMS_hvBusStatus: 8 VEH
  SG_ BMS_chgTimeToFull: 48|12@1+ (0.0166667,0) [0|0] "Hours" X
- SG_ BMS_currentUnfiltered: 32|16@1- (-0.05,500) [0|0] "A" X
+ SG_ BMS_currentUnfiltered: 32|16@1- (-0.05,822) [0|0] "A" X
  SG_ BMS_packCurrent: 16|15@1- (-0.1,0) [0|0] "A" X
  SG_ BMS_packVoltage: 0|16@1+ (0.01,0) [0|0] "V" X
 
@@ -1082,7 +1053,7 @@ BO_ 978 BMS_kwhCounter: 8 VEH
  SG_ BMS_kwhDischargeTotal: 0|32@1+ (0.001,0) [0|0] "KWh" X
 
 BO_ 1010 BMS_kwhCountersMultiplexed: 8 VEH
- SG_ BMS_kwhCounter_Id M: 0|3@1+ (1,0) [0|0] "" X
+ SG_ BMS_kwhCounter_Id M: 0|4@1+ (1,0) [0|0] "" X
  SG_ BMS_acChargerKwhTotal m0: 8|32@1+ (0.001,0) [0|0] "KWh" X
  SG_ BMS_dcChargerKwhTotal m1: 8|32@1+ (0.001,0) [0|0] "KWh" X
  SG_ BMS_kwhRegenChargeTotal m2: 8|32@1+ (0.001,0) [0|0] "KWh" X
@@ -1135,16 +1106,15 @@ BO_ 530 BMS_status: 8 VEH
  SG_ BMS_updateAllowed: 4|1@1+ (1,0) [0|0] "" X
 
 BO_ 786 BMS_thermalStatus: 8 VEH
- SG_ BMS_flowRequest: 10|7@1+ (0.3,0) [0|0] "LPM" X
- SG_ BMS_inletActiveCoolTargetT: 17|8@1+ (0.25,10) [0|0] "DegC" X
- SG_ BMS_inletActiveHeatTargetT: 33|8@1+ (0.25,-25) [0|0] "DegC" X
- SG_ BMS_inletPassiveTargetT: 25|8@1+ (0.25,0) [0|0] "DegC" X
- SG_ BMS_noFlowRequest: 63|1@1+ (1,0) [0|0] "" X
- SG_ BMS_pcsNoFlowRequest: 62|1@1+ (1,0) [0|0] "" X
  SG_ BMS_powerDissipation: 0|10@1+ (0.02,0) [0|0] "kW" X
-
-BO_ 1554 BMS_udsResponse: 8 VEH
- SG_ BMS_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
+ SG_ BMS_flowRequest: 10|7@1+ (0.3,0) [0|0] "LPM" X
+ SG_ BMS_inletActiveCoolTargetT: 17|9@1+ (0.25,-25) [0|0] "DegC" X
+ SG_ BMS_inletPassiveTargetT: 26|9@1+ (0.25,-25) [0|0] "DegC" X
+ SG_ BMS_inletActiveHeatTargetT: 35|9@1+ (0.25,-25) [0|0] "DegC" X
+ SG_ BMS_packTMin : 44|9@1+ (0.25,-25) [-25|100] "DegC" X
+ SG_ BMS_packTMax : 53|9@1+ (0.25,-25) [-25|100] "DegC" X
+ SG_ BMS_pcsNoFlowRequest: 62|1@1+ (1,0) [0|0] "" X
+ SG_ BMS_noFlowRequest: 63|1@1+ (1,0) [0|0] "" X
 
 BO_ 754 BMS_vehNm: 2 VEH
  SG_ BMS_hvsBusAsleep: 2|1@1+ (1,0) [0|0] "" X
@@ -1235,9 +1205,6 @@ BO_ 867 CMP_info: 8 VEH
  SG_ CMP_infoPlatformType m13: 8|8@1+ (1,0) [0|0] "" X
  SG_ CMP_infoAppCrc m13: 32|32@1+ (1,0) [0|0] "" X
 
-BO_ 1555 CMP_udsResponse: 8 VEH
- SG_ CMP_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 798 CP_alertMatrix: 8 VEH
  SG_ CP_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
  SG_ CP_a001_canRx m0: 4|1@1+ (1,0) [0|0] "" X
@@ -1311,10 +1278,6 @@ BO_ 798 CP_alertMatrix: 8 VEH
  SG_ CP_a069_doorInductiveSensorError m1: 12|1@1+ (1,0) [0|0] "" X
  SG_ CP_a256_unused m1: 13|1@1+ (1,0) [0|0] "" X
 
-CM_ "CP_chargeStatus was 573 now 317";
-CM_ BO_ 573 CP_chargeStatus: 1 VEH
-CM_  SG_ CP_acChargeCurrentLimit: 0|8@1+ (0.5,0) [0|0] "A" X
-
 BO_ 317 CP_chargeStatus: 6 VEH
  SG_ CP_acChargeCurrentLimit : 8|8@1+ (0.5,0) [0|127.5] "A"  Receiver
  SG_ CP_chargeShutdownRequest : 3|2@1+ (1,0) [0|2] ""  Receiver
@@ -1324,10 +1287,6 @@ BO_ 317 CP_chargeStatus: 6 VEH
  SG_ CP_internalMaxDcCurrentLimit : 16|13@1+ (0.146502,0) [0|1200] "A"  Receiver
  SG_ CP_vehicleIsoCheckRequired : 29|1@1+ (1,0) [0|1] ""  Receiver
  SG_ CP_vehiclePrechargeRequired : 30|1@1+ (1,0) [0|1] ""  Receiver
-
-VAL_ 317 CP_chargeShutdownRequest 2 "EMERGENCY_SHUTDOWN_REQUESTED" 1 "GRACEFUL_SHUTDOWN_REQUESTED" 0 "NO_SHUTDOWN_REQUESTED" ;
-VAL_ 317 CP_evseChargeType 2 "AC_CHARGER_PRESENT" 1 "DC_CHARGER_PRESENT" 0 "NO_CHARGER_PRESENT" ;
-VAL_ 317 CP_hvChargeStatus 1 "CP_CHARGE_CONNECTED" 5 "CP_CHARGE_ENABLED" 6 "CP_CHARGE_FAULTED" 0 "CP_CHARGE_INACTIVE" 2 "CP_CHARGE_STANDBY" 4 "CP_EVSE_TEST_PASSED" 3 "CP_EXT_EVSE_TEST_ACTIVE" ;
 
 BO_ 541 CP_evseStatus: 8 VEH
  SG_ CP_acChargeRetriesExceeded: 41|1@1+ (1,0) [0|0] "" X
@@ -1415,32 +1374,6 @@ BO_ 1885 CP_sensorData: 8 VEH
  SG_ CP_proximityV_intervalMin10s m8 : 24|16@1+ (0.0001,0) [0|6.5535] "V"  Receiver
  SG_ CP_refVoltage m7 : 8|8@1+ (0.0070588235,0) [0|1.7999999925] "V"  Receiver
 
-CM_ CP_status was 528 is now 605
-CM_ BO_ 605 CP_status: 8 VEH
-CM_  SG_ CP_UHF_controlState: 40|4@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_UHF_handleFound: 44|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_apsVoltage: 24|8@1+ (0.0715686,0) [0|0] "V" X
-CM_  SG_ CP_chargeCablePresent: 3|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_chargeCableSecured: 4|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_chargeDoorOpen: 10|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_chargeDoorOpenUI: 54|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_doorButtonPressed: 32|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_doorControlState: 11|3@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_doorOpenRequested: 45|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_faultLineSensed: 46|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_inductiveDoorState: 48|3@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_inductiveSensorState: 51|3@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_insertEnableLine: 2|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_latch2ControlState: 19|3@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_latch2State: 8|2@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_latchControlState: 16|3@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_latchState: 5|2@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_ledColor: 33|4@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_numAlertsSet: 56|7@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_swcanRelayClosed: 37|1@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_type: 0|2@1+ (1,0) [0|0] "" X
-CM_  SG_ CP_vehicleUnlockRequest: 55|1@1+ (1,0) [0|0] "" X
-
 BO_ 605 CP_status: 8 VEH
  SG_ CP_UHF_controlState : 38|4@1+ (1,0) [0|10] ""  Receiver
  SG_ CP_UHF_handleFound : 42|1@1+ (1,0) [0|1] ""  Receiver
@@ -1476,9 +1409,6 @@ BO_ 669 CP_dcChargeStatus: 4 VEH
  SG_ CP_evseOutputDcCurrent : 0|15@1- (0.0732467,0) [-1200|1200] "A" X
  SG_ CP_evseOutputDcCurrentStale : 29|1@1+ (1,0) [0|1] "" X
  SG_ CP_evseOutputDcVoltage : 16|13@1+ (0.0732422,0) [0|599.927] "V" X
-
-BO_ 1566 CP_udsResponse: 8 VEH
- SG_ CP_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 BO_ 583 DAS_autopilotDebug: 8 VEH
  SG_ DAS_autopilotAbortReason: 32|8@1+ (1,0) [0|255] "" X
@@ -2240,9 +2170,6 @@ BO_ 1548 DAS_telemetryRadar: 8 VEH
  SG_ DAS_TR_Obj31_Dz m31: 48|6@1+ (0.25,-5) [0|0] "m" X
  SG_ DAS_TR_Obj31_Exist m31: 56|5@1+ (3.125,0) [0|0] "%" X
 
-BO_ 1625 DAS_udsResponse: 8 VEH
- SG_ DAS_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 586 DAS_visualDebug: 8 CH
  SG_ DAS_accSmartSpeedActive: 48|1@1+ (1,0) [0|0] "" X
  SG_ DAS_accSmartSpeedState: 49|3@1+ (1,0) [0|0] "" X
@@ -2606,8 +2533,6 @@ BO_ 741 DIS_power: 7 VEH
  SG_ DIS_elecPower: 16|11@1- (0.5,0) [0|0] "kW" X
  SG_ DIS_heatPowerActual: 48|8@1+ (0.08,0) [0|0] "kW" X
 
-CM_ "TODO: joshwardell has different signal parsing on 390 and 472, check these";
-
 BO_ 390 DIS_frontTorque: 8 VEH
  SG_ DIS_frontTorqueChecksum: 0|8@1+ (1,0) [0|0] "" X
  SG_ DIS_frontTorqueCounter: 8|4@1+ (1,0) [0|0] "" X
@@ -2616,10 +2541,6 @@ BO_ 390 DIS_frontTorque: 8 VEH
  SG_ DIS_frontAxleSpeed: 40|16@1- (0.1,0) [0|0] "RPM" X
  SG_ DIS_frontSlavePedalPos : 56|8@1+ (0.4,0) [0|100] "%" X
 
-VAL_ 390 DIS_frontAxleSpeed -32768 "SNA";
-VAL_ 390 DIS_frontTorqueActual -4096 "SNA";
-VAL_ 390 DIS_frontTorqueCommand -4096 "SNA";
-
 BO_ 472 DIS_torque: 8 VEH
  SG_ DIS_torqueFlags: 0|8@1+ (1,0) [0|0] "" X
  SG_ DIS_torqueCommand: 8|15@1- (0.1,0) [0|0] "Nm" X
@@ -2627,13 +2548,6 @@ BO_ 472 DIS_torque: 8 VEH
  SG_ DIS_axleSpeed: 40|16@1- (0.1,0) [0|0] "RPM" X
  SG_ DIS_torqueChecksum: 56|8@1+ (1,0) [0|0] "" X
  SG_ DIS_torqueCounter: 53|3@1+ (1,0) [0|0] "" X
-
-VAL_ 472 DIS_axleSpeed -32768 "SNA";
-VAL_ 472 DIS_torqueActual -4096 "SNA";
-VAL_ 472 DIS_torqueCommand -4096 "SNA";
-
-BO_ 1557 DIS_udsResponse: 8 VEH
- SG_ DIS_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 BO_ 854 DI_alertMatrix1: 8 VEH
  SG_ DI_a001_hwPhaseAgateDrive: 0|1@1+ (1,0) [0|0] "" X
@@ -2867,7 +2781,6 @@ BO_ 694 DI_chassisControlStatus: 2 VEH
  SG_ DI_vdcTelltaleFlash: 0|1@1+ (1,0) [0|0] "" X
  SG_ DI_vdcTelltaleOn: 1|1@1+ (1,0) [0|0] "" X
 
-CM_ "BO_ 1879 DI_debug > 2005";
 BO_ 2005 DI_debug: 8 VEH
  SG_ DI_debugSelector M: 0|8@1+ (1,0) [0|0] "" X
  SG_ DI_motorType m128: 8|5@1+ (1,0) [0|0] "" X
@@ -3097,15 +3010,6 @@ BO_ 917 DI_oilPump: 8 VEH
  SG_ DI_oilPumpCurrent: 48|8@1+ (0.1,0) [0|0] "A" X
  SG_ DI_oilPumpCurrentSensorOffset: 56|8@1+ (0.005,0) [0|0] "A" X
 
-VAL_ 917 DI_oilPumpCurrent 255 "SNA";
-VAL_ 917 DI_oilPumpCurrentSensorOffset 255 "SNA";
-VAL_ 917 DI_oilPumpFlowActual 255 "SNA";
-VAL_ 917 DI_oilPumpFlowTarget 255 "SNA";
-VAL_ 917 DI_oilPumpFluidT 255 "SNA";
-VAL_ 917 DI_oilPumpPcbT 255 "SNA";
-VAL_ 917 DI_oilPumpState 0 "STANDBY" 1 "ENABLE" 2 "COLD_STARTUP" 6 "FAULTED" 7 "SNA";
-VAL_ 917 DI_oilPumpVoltage 255 "SNA";
-
 BO_ 918 DI_frontOilPump: 8 VEH
  SG_ DI_frontOilPumpCurrent: 48|8@1+ (0.1,0) [0|0] "A" X
  SG_ DI_frontOilPumpCurrentSensorOffset: 56|8@1+ (0.005,0) [0|0] "A" X
@@ -3117,15 +3021,6 @@ BO_ 918 DI_frontOilPump: 8 VEH
  SG_ DI_frontOilPumpVoltage: 40|8@1+ (0.1,0) [0|0] "V" X
  SG_ DI_frontOilPumpFluidConfidence : 3|1@1+ (1,0) [0|0] "" X
  SG_ DI_frontOilPumpLeadAngle : 4|4@1+ (1.875,0) [0|28.125] "deg" X
-
-VAL_ 918 DI_frontOilPumpCurrent 255 "SNA";
-VAL_ 918 DI_frontOilPumpCurrentSensorOffset 255 "SNA";
-VAL_ 918 DI_frontOilPumpFlowActual 255 "SNA";
-VAL_ 918 DI_frontOilPumpFlowTarget 255 "SNA";
-VAL_ 918 DI_frontOilPumpFluidT 255 "SNA";
-VAL_ 918 DI_frontOilPumpPcbT 255 "SNA";
-VAL_ 918 DI_frontOilPumpState 0 "STANDBY" 1 "ENABLE" 2 "COLD_STARTUP" 6 "FAULTED" 7 "SNA";
-VAL_ 918 DI_frontOilPumpVoltage 255 "SNA";
 
 BO_ 614 DI_power: 8 VEH
  SG_ DI_elecPower: 0|11@1- (0.5,0) [0|0] "kW" X
@@ -3184,7 +3079,6 @@ BO_ 886 DI_frontInverterTemperature: 8 VEH
 
 BO_ 789 DI_temperature: 8 VEH
  SG_ DI_temperatureIndex M: 0|1@1+ (1,0) [0|1] "" X
- CM_ SG_ DI_pcbT: 0|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_inverterT m0: 8|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_statorT m0: 16|8@1+ (1,-40) [0|0] "DegC" X
  SG_ DI_dcCapT m0: 24|8@1+ (1,-40) [0|0] "DegC" X
@@ -3222,9 +3116,6 @@ BO_ 264 DI_torque: 8 VEH
  SG_ DI_torqueCommand: 12|13@1- (2,0) [0|0] "Nm" X
  SG_ DI_torqueCounter: 8|4@1+ (1,0) [0|0] "" X
  SG_ DI_slavePedalPos : 56|8@1+ (0.4,0) [0|100] "%" X
-
-BO_ 1558 DI_udsResponse: 8 VEH
- SG_ DI_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 BO_ 914 EPAS3P_alertMatrix: 8 VEH
  SG_ EPAS3P_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
@@ -3384,9 +3275,6 @@ BO_ 883 EPAS3P_sysStatus: 8 VEH
  SG_ EPAS3P_sysStatusCounter: 48|4@1+ (1,0) [0|0] "" X
  SG_ EPAS3P_torsionBarTorque: 16|12@0+ (0.01,-20.5) [0|0] "Nm" X
 
-BO_ 1592 EPAS3P_udsResponseCH: 8 VEH
- SG_ EPAS3P_udsResponseDataCH: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 913 EPAS3S_alertMatrix: 8 CH
  SG_ EPAS3S_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
  SG_ EPAS3S_a001_sent1Mia m0: 4|1@1+ (1,0) [0|0] "" X
@@ -3545,9 +3433,6 @@ BO_ 882 EPAS3S_sysStatus: 8 VEH
  SG_ EPAS3S_sysStatusCounter: 48|4@1+ (1,0) [0|0] "" X
  SG_ EPAS3S_torsionBarTorque: 16|12@0+ (0.01,-20.5) [0|0] "Nm" X
 
-BO_ 1848 EPAS3S_udsResponse: 8 VEH
- SG_ EPAS3S_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 968 EPBL_alertMatrix: 8 VEH
  SG_ EPBL_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
  SG_ EPBL_a001_WatchdogReset m0: 4|1@1+ (1,0) [0|0] "" X
@@ -3705,10 +3590,6 @@ BO_ 681 EPBL_status: 8 VEH
  SG_ EPBL_winchModeAvailable: 49|1@1+ (1,0) [0|0] "" X
  SG_ EPBL_winchModeTimer: 32|12@1+ (1,0) [0|0] "" X
 
-BO_ 1573 EPBL_udsResponse: 8 VEH
- SG_ EPBL_udsResponseData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ EPBL_udsResponseData_L: 32|32@0+ (1,0) [0|0] "" X
-
 BO_ 1000 EPBR_alertMatrix: 8 VEH
  SG_ EPBR_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
  SG_ EPBR_a001_WatchdogReset m0: 4|1@1+ (1,0) [0|0] "" X
@@ -3865,10 +3746,6 @@ BO_ 744 EPBR_status: 8 VEH
  SG_ EPBR_winchModeActive: 23|1@1+ (1,0) [0|0] "" X
  SG_ EPBR_winchModeAvailable: 49|1@1+ (1,0) [0|0] "" X
  SG_ EPBR_winchModeTimer: 32|12@1+ (1,0) [0|0] "" X
-
-BO_ 1575 EPBR_udsResponse: 8 VEH
- SG_ EPBR_udsResponseData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ EPBR_udsResponseData_L: 32|32@0+ (1,0) [0|0] "" X
 
 BO_ 981 ESP_alertMatrix: 8 CH
  SG_ ESP_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
@@ -4190,14 +4067,6 @@ BO_ 341 ESP_wheelRotation: 8 CH
  SG_ ESP_wheelRotationCounter : 52|4@1+ (1,0) [0|15] ""  Receiver
  SG_ ESP_wheelRotationChecksum : 56|8@1+ (1,0) [0|255] ""  Receiver
 
-VAL_ 341 ESP_wheelRotationRR 3 "UNKNOWN" 2 "STANDSTILL" 1 "BACKWARD" 0 "FORWARD" ;
-VAL_ 341 ESP_wheelRotationRL 3 "UNKNOWN" 2 "STANDSTILL" 1 "BACKWARD" 0 "FORWARD" ;
-VAL_ 341 ESP_wheelRotationFR 3 "UNKNOWN" 2 "STANDSTILL" 1 "BACKWARD" 0 "FORWARD" ;
-VAL_ 341 ESP_wheelRotationFL 3 "UNKNOWN" 2 "STANDSTILL" 1 "BACKWARD" 0 "FORWARD" ;
-VAL_ 341 ESP_wheelRotationQF 1 "VALID" 0 "INVALID" ;
-VAL_ 341 ESP_standstillStatus 1 "STANDSTILL" 0 "ROLLING" ;
-VAL_ 341 ESP_vehicleSpeed 1023 "SNA" ;
-
 BO_ 373 ESP_wheelSpeed: 8 CH
  SG_ ESP_wheelSpeedRR : 39|13@1+ (0.04,0) [0|327.64] "RPM" X
  SG_ ESP_wheelSpeedRL : 26|13@1+ (0.04,0) [0|327.64] "RPM" X
@@ -4205,11 +4074,6 @@ BO_ 373 ESP_wheelSpeed: 8 CH
  SG_ ESP_wheelSpeedFL : 0|13@1+ (0.04,0) [0|327.64] "RPM" X
  SG_ ESP_wheelSpeedCounter : 52|4@1+ (1,0) [0|15] ""  Receiver
  SG_ ESP_wheelSpeedChecksum : 56|8@1+ (1,0) [0|255] ""  Receiver
-
-VAL_ 373 ESP_wheelSpeedRR 8191 "SNA";
-VAL_ 373 ESP_wheelSpeedRL 8191 "SNA";
-VAL_ 373 ESP_wheelSpeedFR 8191 "SNA";
-VAL_ 373 ESP_wheelSpeedFL 8191 "SNA";
 
 BO_ 389 ESP_brakeTorque: 8 CH
  SG_ ESP_brakeTorqueFL : 0|12@1+ (2,0) [0|8190] "Nm"  Receiver
@@ -4219,15 +4083,6 @@ BO_ 389 ESP_brakeTorque: 8 CH
  SG_ ESP_brakeTorqueQF : 50|1@1+ (1,0) [0|1] ""  Receiver
  SG_ ESP_brakeTorqueCounter : 52|4@1+ (1,0) [0|15] ""  Receiver
  SG_ ESP_brakeTorqueChecksum : 56|8@1+ (1,0) [0|255] ""  Receiver
-
-VAL_ 389 ESP_brakeTorqueFL 4095 "SNA" ;
-VAL_ 389 ESP_brakeTorqueFR 4095 "SNA" ;
-VAL_ 389 ESP_brakeTorqueRL 4095 "SNA" ;
-VAL_ 389 ESP_brakeTorqueRR 4095 "SNA" ;
-VAL_ 389 ESP_brakeTorqueQF 1 "IN_SPEC" 0 "UNDEFINABLE_ACCURACY" ;
-
-BO_ 1621 ESP_udsResponse: 8 VEH
- SG_ ESP_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 BO_ 805 FC_alertMatrix1: 8 VEH
  SG_ FC_a001_scPostOutOfService: 0|1@1+ (1,0) [0|0] "" X
@@ -4446,13 +4301,6 @@ BO_ 535 FC_status3: 8 VEH
 
 BO_ 888 GTW_ECall: 1 VEH
  SG_ GTW_GSM_ECALL_nLOCK: 0|1@1+ (1,0) [0|0] "" X
-
-CM_ "273 is RCM_inertial2 now";
-CM_ BO_ 273 GTW_adc: 7 VEH
-CM_  SG_ GTW_12V0_AUDIO_FILT: 0|14@0+ (11,0) [0|0] "mV" X
-CM_  SG_ GTW_12V0_FILT: 16|14@0+ (11,0) [0|0] "mV" X
-CM_  SG_ GTW_WLAN_ANT_DET0: 32|12@0+ (1,0) [0|0] "mV" X
-CM_  SG_ GTW_WLAN_ANT_DET1: 40|12@0+ (1,0) [0|0] "mV" X
 
 BO_ 274 GTW_adc1: 8 VEH
  SG_ GTW_1V1_VEH: 24|12@0+ (1,0) [0|0] "mV" X
@@ -4916,9 +4764,6 @@ BO_ 784 HVP_info: 8 VEH
  SG_ HVP_bootUdsProtoVersion m20: 8|8@1+ (1,0) [0|0] "" X
  SG_ HVP_bootCrc m20: 32|32@1+ (1,0) [0|0] "" X
 
-BO_ 1553 HVP_udsResponse: 8 VEH
- SG_ HVP_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 1898 HVP_vehicleDbg: 8 VEH
  SG_ HVP_ecuLogUploadRequest: 5|2@1+ (1,0) [0|0] "" X
  SG_ HVP_vehicleDebugMultiplexer M: 0|5@1+ (1,0) [0|0] "" X
@@ -5128,53 +4973,6 @@ BO_ 925 IBST_status: 3 CH
  SG_ IBST_statusChecksum: 0|8@1+ (1,0) [0|0] "" X
  SG_ IBST_statusCounter: 8|4@1+ (1,0) [0|0] "" X
 
-BO_ 1629 IBST_udsResponse: 8 VEH
- SG_ IBST_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
-CM_ "This is now oil pump"; Might still be OCS1P_alertMatrix on CH !!! TODO >> VERIFY
-CM_ BO_ 917 OCS1P_alertMatrix: 8 VEH
-CM_  SG_ OCS1P_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w121_sandwichOpen m2: 4|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w122_sandwichLow m2: 5|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w123_sandwichShort m2: 6|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w124_cushionSelfOpen m2: 7|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w125_cushionSelfLow m2: 8|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w126_cushionSelfShort m2: 9|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w127_seatbackSelfOpen m2: 10|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w128_seatbackSelfLow m2: 11|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w129_seatbackSelfShort m2: 12|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w130_sandwichNoCalib m2: 13|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w131_cushionSelfNoCalib m2: 14|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w132_seatbackSelfNoCalib m2: 15|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w133_sandwichBadCalib m2: 16|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w134_uninitializedCalib m2: 17|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w135_tempNoCalib m2: 18|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w136_cushionSelfDutyLow m2: 19|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w137_cushionSelfDutyHigh m2: 20|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w138_seatbackSelfDutyLow m2: 21|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w139_seatbackSelfDutyHigh m2: 22|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w140_tempInvalidCalib m2: 23|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w141_humidityInvalidCalib m2: 24|1@1+ (1,0) [0|0] "" X
-CM_  SG_ OCS1P_w142_tempHumidityInvalid m2: 25|1@1+ (1,0) [0|0] "" X
-
-CM_ BO_ 789 OCS1P_info: 8 CH
-CM_ SG_ OCS1P_infoIndex M: 0|8@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoBuildType m10: 8|8@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoBuildConfigID m10: 16|16@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoHardwareID m10: 32|16@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoComponentID m10: 48|16@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoPcbaID m11: 16|8@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoAssemblyID m11: 24|8@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoUsageID m11: 32|16@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoSubUsageID m11: 48|16@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoApplicationCRC m13: 32|32@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoBootSvnRev m14: 8|24@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoAppGitHashBytes m17: 10|54@1+ (4,0) [0|0] "" X
-CM_ SG_ OCS1P_infoBootGitHashBytes m18: 10|54@1+ (4,0) [0|0] "" X
-CM_ SG_ OCS1P_infoPlatformType m19: 8|8@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoBootUdsProtoVersion m20: 8|8@1+ (1,0) [0|0] "" X
-CM_ SG_ OCS1P_infoBootloaderCRC m20: 32|32@1+ (1,0) [0|0] "" X
-
 BO_ 771 OCS1P_status: 8 VEH
  SG_ OCS1P_classificationExtHold: 32|1@1+ (1,0) [0|0] "" X
  SG_ OCS1P_classificationHeld: 15|1@1+ (1,0) [0|0] "" X
@@ -5189,9 +4987,6 @@ BO_ 771 OCS1P_status: 8 VEH
  SG_ OCS1P_seatbackStable: 14|1@1+ (1,0) [0|0] "" X
  SG_ OCS1P_statusChecksum: 56|8@1+ (1,0) [0|0] "" X
  SG_ OCS1P_statusCounter: 52|4@1+ (1,0) [0|0] "" X
-
-BO_ 1619 OCS1P_udsResponse: 8 VEH
- SG_ OCS1P_udsResponseData: 10|54@1+ (1024,0) [0|0] "" X
 
 BO_ 1152 ODIN_IsoTpPipeVCSEC: 8 VEH
  SG_ ODIN_IsoTpPipeVCSEC0: 0|8@1+ (1,0) [0|0] "" X
@@ -5347,17 +5142,6 @@ BO_ 830 PARK_sensorStatusRear: 5 CH
  SG_ PARK_sensorStatusRearCounter: 28|4@1+ (1,0) [0|0] "" X
  SG_ PARK_systemStatusRear: 24|2@1+ (1,0) [0|0] "" X
 
-CM_ "799 is now TPMS_data";
-CM_ BO_ 799 PARK_status: 6 VEH
-CM_  SG_ PARK_majorVersion: 24|8@1+ (1,0) [0|0] "" X
-CM_  SG_ PARK_minorVersion: 32|8@1+ (1,0) [0|0] "" X
-CM_  SG_ PARK_serviceRequest: 2|2@1+ (1,0) [0|0] "" X
-CM_  SG_ PARK_status: 0|2@1+ (1,0) [0|0] "" X
-CM_  SG_ PARK_statusChecksum: 16|8@1+ (1,0) [0|0] "" X
-CM_  SG_ PARK_statusCounter: 12|4@1+ (1,0) [0|0] "" X
-CM_  SG_ PARK_subMinorVersion: 40|8@1+ (1,0) [0|0] "" X
-CM_  SG_ PARK_systemDtcPresent: 4|2@1+ (1,0) [0|0] "" X
-
 BO_ 782 PARK_status2: 8 CH
  SG_ PARK_autoCalComplete: 16|1@1+ (1,0) [0|0] "" X
  SG_ PARK_frontSVACharID: 0|6@1+ (1,0) [0|0] "" X
@@ -5373,9 +5157,6 @@ BO_ 782 PARK_status2: 8 CH
  SG_ PARK_status2Checksum: 56|8@1+ (1,0) [0|0] "" X
  SG_ PARK_status2Counter: 52|4@1+ (1,0) [0|0] "" X
  SG_ PARK_tireFitment: 19|2@1+ (1,0) [0|0] "" X
-
-BO_ 1630 PARK_udsResponse: 8 VEH
- SG_ PARK_udsResponseData: 10|54@1+ (1024,0) [0|0] "" X
 
 BO_ 894 PARK_warningMatrix: 8 CH
  SG_ PARK_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
@@ -5590,7 +5371,6 @@ BO_ 548 PCS_dcdcStatus: 8 VEH
  SG_ PCS_dcdcFaulted: 15|1@1+ (1,0) [0|0] "" X
  SG_ PCS_dcdcHvBusDischargeStatus: 4|2@1+ (1,0) [0|0] "" X
  SG_ PCS_dcdcInitialPrechargeSubState: 59|5@1+ (1,0) [0|0] "" X
- CM_ SG_ PCS_dcdcLvOutputCurrent: 16|12@1+ (0.1,0) [0|0] "A" X
  SG_ PCS_dcdcMainState: 6|4@1+ (1,0) [0|0] "" X
  SG_ PCS_dcdcMaxOutputCurrentAllowed: 29|12@1+ (0.1,0) [0|0] "A" X
  SG_ PCS_dcdcOutputIsLimited: 28|1@1+ (1,0) [0|0] "" X
@@ -5696,8 +5476,6 @@ BO_ 708 PCS_logging: 8 VEH
  SG_ PCS_chgNgPllLocked m5: 58|1@1+ (1,0) [0|0] "" X
  SG_ PCS_chgPhManOptimalPhsToUse m5: 59|2@1+ (1,0) [0|0] "" X
  SG_ PCS_chg5VL1Enable m5: 61|1@1+ (1,0) [0|0] "" X
- CM_ SG_ PCS_dcdcLvBusVolt m6: 5|10@1+ (0.0390625,0) [0|0] "V" X
- CM_ SG_ PCS_dcdcHvBusVolt m6: 16|12@1+ (0.146484,0) [0|0] "V" X
  SG_ PCS_dcdcMaxLvOutputCurrent m6: 28|12@1+ (0.1,0) [0|0] "A" X
  SG_ PCS_dcdcCurrentLimit m6: 40|12@1+ (0.1,0) [0|0] "A" X
  SG_ PCS_dcdcLvOutputCurrentTempLimit m6: 52|12@1+ (0.1,0) [0|0] "A" X
@@ -5786,9 +5564,6 @@ BO_ 676 PCS_thermalStatus: 8 VEH
  SG_ PCS_chgPhCTemp: 24|11@1- (0.1,40) [0|0] "C" X
  SG_ PCS_dcdcTemp: 35|11@1- (0.1,40) [0|0] "C" X
 
-BO_ 1577 PCS_udsResponse: 8 VEH
- SG_ PCS_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 900 PMS_alertMatrix1: 8 VEH
  SG_ PMS_w001_absoluteTorque: 0|1@1+ (1,0) [0|0] "" X
  SG_ PMS_w002_accumulatedTorque: 1|1@1+ (1,0) [0|0] "" X
@@ -5845,9 +5620,6 @@ BO_ 1748 PMS_info: 8 VEH
  SG_ PMS_platformTyp m19: 8|8@1+ (1,0) [0|0] "" X
  SG_ PMS_udsProtocolVersion m20: 8|8@1+ (1,0) [0|0] "" X
  SG_ PMS_bootloaderCrc m20: 32|32@1+ (1,0) [0|0] "" X
-
-BO_ 1620 PMS_udsResponse: 8 VEH
- SG_ PMS_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 BO_ 772 PM_alertMatrix1: 8 VEH
  SG_ PM_a001_absoluteTorque: 0|1@1+ (1,0) [0|0] "" X
@@ -5924,9 +5696,6 @@ BO_ 790 PM_info: 8 VEH
  SG_ PM_udsProtocolVersion m20: 8|8@1+ (1,0) [0|0] "" X
  SG_ PM_bootloaderCrc m20: 32|32@1+ (1,0) [0|0] "" X
 
-BO_ 1556 PM_udsResponse: 8 VEH
- SG_ PM_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 837 PTC_info: 8 VEH
  SG_ PTC_infoIndex M: 0|8@1+ (1,0) [0|0] "" X
  SG_ PTC_infoBuildType m10: 8|3@1+ (1,0) [0|0] "" X
@@ -5950,9 +5719,6 @@ BO_ 647 PTC_sensorStatus: 8 VEH
  SG_ PTC_tempOCP: 8|8@1+ (1,-40) [0|0] "degC" X
  SG_ PTC_tempPCB: 24|8@1+ (1,-40) [0|0] "degC" X
  SG_ PTC_voltageHV: 32|10@1+ (0.5,0) [0|0] "V" X
-
-BO_ 1750 PTC_udsResponse: 8 VEH
- SG_ PTC_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 BO_ 1282 RADC_alertMatrix0: 8 CH
  SG_ RADC_a001_can1BusOff: 1|1@1+ (1,0) [0|0] "" X
@@ -6029,9 +5795,6 @@ BO_ 1329 RADC_info: 8 CH
  SG_ RADC_infoBootUdsProtoVersion m20: 8|8@1+ (1,0) [0|0] "" X
  SG_ RADC_infoBootloaderCRC m20: 32|32@1+ (1,0) [0|0] "" X
  SG_ RADC_infoApplicationCRC m13: 32|32@1+ (1,0) [0|0] "" X
-
-BO_ 1665 RADC_udsResponse: 8 VEH
- SG_ RADC_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 BO_ 881 RCM_alertMatrix: 8 VEH
  SG_ RCM_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
@@ -6175,7 +5938,6 @@ BO_ 257 RCM_inertial1: 8 CH
  SG_ RCM_yawRate: 0|16@1- (0.0001,0) [0|0] "rad/s" X
  SG_ RCM_yawRateQF: 48|1@1+ (1,0) [0|0] "" X
 
-CM_ "TODO: jwardell has a RCM_inertial2New at 278, verify this"
 BO_ 273 RCM_inertial2: 8 CH
  SG_ RCM_inertial2Checksum : 56|8@1+ (1,0) [0|255] "" X
  SG_ RCM_inertial2Counter : 52|4@1+ (1,0) [0|15] "" X
@@ -6185,6 +5947,16 @@ BO_ 273 RCM_inertial2: 8 CH
  SG_ RCM_longitudinalAccelQF : 48|1@1+ (1,0) [0|1] "" X
  SG_ RCM_verticalAccel : 32|16@1- (0.00125,0) [-40.9575|40.9575] "m/s^2" X
  SG_ RCM_verticalAccelQF : 50|1@1+ (1,0) [0|1] ""  X
+
+BO_ 278 RCM_inertial2New: 8 CH
+ SG_ RCM_inertial2Checksum : 56|8@1+ (1,0) [0|255] ""  Receiver
+ SG_ RCM_inertial2Counter : 52|4@1+ (1,0) [0|15] ""  Receiver
+ SG_ RCM_lateralAccel : 16|16@1- (0.00125,0) [-40.9575|40.9575] "m/s^2"  Receiver
+ SG_ RCM_lateralAccelQF : 49|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ RCM_longitudinalAccel : 0|16@1- (0.00125,0) [-40.9575|40.9575] "m/s^2"  Receiver
+ SG_ RCM_longitudinalAccelQF : 48|1@1+ (1,0) [0|1] ""  Receiver
+ SG_ RCM_verticalAccel : 32|16@1- (0.00125,0) [-40.9575|40.9575] "m/s^2"  Receiver
+ SG_ RCM_verticalAccelQF : 50|1@1+ (1,0) [0|1] ""  Receiver
 
 BO_ 849 RCM_info: 8 CH
  SG_ RCM_infoIndex M: 0|8@1+ (1,0) [0|0] "" X
@@ -6224,9 +5996,6 @@ BO_ 529 RCM_status: 6 VEH
  SG_ RCM_statusCounter: 8|4@1+ (1,0) [0|0] "" X
  SG_ RCM_vinLearnFlag: 22|2@1+ (1,0) [0|0] "" X
  SG_ RCM_warningIndicatorState: 14|2@1+ (1,0) [0|0] "" X
-
-BO_ 1617 RCM_udsResponse: 8 VEH
- SG_ RCM_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 BO_ 1359 SCCM_alertMatrix: 8 VEH
  SG_ SCCM_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
@@ -6286,9 +6055,6 @@ BO_ 553 SCCM_rightStalk: 3 VEH
  SG_ SCCM_gearStalkStatus: 12|3@1+ (1,0) [0|7] "" X
  SG_ SCCM_parkButtonStatus: 16|2@1+ (1,0) [0|3] "" X
 
-VAL_ 553 SCCM_gearStalkStatus 0 "IDLE" 1 "UP_1" 2 "UP_2" 3 "DOWN_1" 4 "DOWN_2" 5 "SNA";
-VAL_ 553 SCCM_parkButtonStatus 0 "NOT_PRESSED" 1 "1ST_DETENT" 2 "2ND_DETENT" 3 "SNA";
-
 BO_ 585 SCCM_leftStalk: 3 VEH
  SG_ SCCM_leftStalkChecksum: 0|8@1+ (1,0) [0|0] "" X
  SG_ SCCM_leftStalkCounter: 8|4@1+ (1,0) [0|0] "" X
@@ -6308,16 +6074,6 @@ BO_ 297 SCCM_steeringAngleSensor: 8 VEH
  SG_ SCCM_steeringAngleSpeed: 32|14@1+ (0.5,-4096) [0|0] "deg/s" X
  SG_ SCCM_steeringAngleValidity: 30|2@1+ (1,0) [0|0] "" X
  SG_ SCCM_supplierID: 12|2@1+ (1,0) [0|0] "" X
-
-BO_ 1680 SCCM_udsResponse: 8 VEH
- SG_ SCCM_functionalResponseData_0: 0|8@1+ (1,0) [0|0] "" X
- SG_ SCCM_functionalResponseData_1: 8|8@1+ (1,0) [0|0] "" X
- SG_ SCCM_functionalResponseData_2: 16|8@1+ (1,0) [0|0] "" X
- SG_ SCCM_functionalResponseData_3: 24|8@1+ (1,0) [0|0] "" X
- SG_ SCCM_functionalResponseData_4: 32|8@1+ (1,0) [0|0] "" X
- SG_ SCCM_functionalResponseData_5: 40|8@1+ (1,0) [0|0] "" X
- SG_ SCCM_functionalResponseData_6: 48|8@1+ (1,0) [0|0] "" X
- SG_ SCCM_functionalResponseData_7: 56|8@1+ (1,0) [0|0] "" X
 
 BO_ 815 SCM_alertMatrix1: 8 CH
  SG_ SCM_a001_hwDSPfault: 0|1@1+ (1,0) [0|0] "" X
@@ -6640,9 +6396,6 @@ BO_ 525 TAS_states: 8 VEH
  SG_ TAS_veryLowAllowed: 33|1@1+ (1,0) [0|0] "" X
  SG_ TAS_yellowWarningLamp: 39|1@1+ (1,0) [0|0] "" X
 
-BO_ 1627 TAS_udsResponse: 8 VEH
- SG_ TAS_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 845 TAS_warningMatrix1: 8 VEH
  SG_ TAS_w001_WatchdogReset: 0|1@1+ (1,0) [0|0] "" X
  SG_ TAS_w002_PowerLossReset: 1|1@1+ (1,0) [0|0] "" X
@@ -6854,117 +6607,6 @@ BO_ 1519 TPMS_info: 8 CH
  SG_ TPMS_infoBootloaderCRC m20: 32|32@1+ (1,0) [0|0] "" X
  SG_ TPMS_infoApplicationCRC m13: 32|32@1+ (1,0) [0|0] "" X
 
-BO_ 1631 TPMS_udsResponse: 8 VEH
- SG_ TPMS_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1641 UDS_KOSTIAsccmRequest: 8 VEH
- SG_ UDS_KOSTIAsccmRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1538 UDS_bmsRequest: 8 VEH
- SG_ UDS_bmsRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1579 UDS_ccRequest: 8 VEH
- SG_ UDS_ccRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1539 UDS_cmpRequest: 8 VEH
- SG_ UDS_cmpRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1550 UDS_cpRequest: 8 VEH
- SG_ UDS_cpRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1609 UDS_dasRequest: 8 VEH
- SG_ UDS_dasRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1542 UDS_diRequest: 8 VEH
- SG_ UDS_diRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1541 UDS_disRequest: 8 VEH
- SG_ UDS_disRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1584 UDS_epas3pRequest: 8 VEH
- SG_ UDS_epas3pRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1840 UDS_epas3sRequest: 8 VEH
- SG_ UDS_epas3sRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1572 UDS_epblRequest: 8 VEH
- SG_ UDS_epblRequestData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ UDS_epblRequestData_L: 32|32@0+ (1,0) [0|0] "" X
-
-BO_ 1574 UDS_epbrRequest: 8 VEH
- SG_ UDS_epbrRequestData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ UDS_epbrRequestData_L: 32|32@0+ (1,0) [0|0] "" X
-
-BO_ 1605 UDS_espRequest: 8 VEH
- SG_ UDS_espRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 2015 UDS_functionalRequest: 8 VEH
- SG_ UDS_functionalRequestData_0: 0|8@1+ (1,0) [0|0] "" X
- SG_ UDS_functionalRequestData_1: 8|8@1+ (1,0) [0|0] "" X
- SG_ UDS_functionalRequestData_2: 16|8@1+ (1,0) [0|0] "" X
- SG_ UDS_functionalRequestData_3: 24|8@1+ (1,0) [0|0] "" X
- SG_ UDS_functionalRequestData_4: 32|8@1+ (1,0) [0|0] "" X
- SG_ UDS_functionalRequestData_5: 40|8@1+ (1,0) [0|0] "" X
- SG_ UDS_functionalRequestData_6: 48|8@1+ (1,0) [0|0] "" X
- SG_ UDS_functionalRequestData_7: 56|8@1+ (1,0) [0|0] "" X
-
-BO_ 1552 UDS_hvpRequest: 8 VEH
- SG_ UDS_hvpRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1613 UDS_ibstRequest: 8 VEH
- SG_ UDS_ibstRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1603 UDS_ocs1pRequest: 8 VEH
- SG_ UDS_ocs1pRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1614 UDS_parkRequest: 8 VEH
- SG_ UDS_parkRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1576 UDS_pcsRequest: 8 VEH
- SG_ UDS_pcsRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1540 UDS_pmRequest: 8 VEH
- SG_ UDS_pmRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1604 UDS_pmsRequest: 8 VEH
- SG_ UDS_pmsRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1734 UDS_ptcRequest: 8 VEH
- SG_ UDS_ptcRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1649 UDS_radcRequest: 8 VEH
- SG_ UDS_radcRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1601 UDS_rcmRequest: 8 VEH
- SG_ UDS_rcmRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1664 UDS_sccmRequest: 8 VEH
- SG_ UDS_sccmRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1611 UDS_tasRequest: 8 VEH
- SG_ UDS_tasRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1551 UDS_thcRequest: 8 VEH
- SG_ UDS_thcRequestData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ UDS_thcRequestData_L: 32|32@0+ (1,0) [0|0] "" X
-
-BO_ 1615 UDS_tpmsRequest: 8 VEH
- SG_ UDS_tpmsRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1536 UDS_vcfrontRequest: 8 VEH
- SG_ UDS_vcfrontRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
-BO_ 1570 UDS_vcleftRequest: 8 VEH
- SG_ UDS_vcleftRequestData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ UDS_vcleftRequestData_L: 32|32@0+ (1,0) [0|0] "" X
-
-BO_ 1544 UDS_vcrightRequest: 8 VEH
- SG_ UDS_vcrightRequestData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ UDS_vcrightRequestData_L: 32|32@0+ (1,0) [0|0] "" X
-
-BO_ 1546 UDS_vcsecRequest: 8 VEH
- SG_ UDS_vcsecRequestData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 1153 UI_IsoTpUDPPipeVCSEC: 8 VEH
  SG_ UI_IsoTpUDPPipeVCSEC0: 0|8@1+ (1,0) [0|0] "" X
  SG_ UI_IsoTpUDPPipeVCSEC1: 8|8@1+ (1,0) [0|0] "" X
@@ -7040,7 +6682,6 @@ BO_ 291 UI_alertMatrix1: 8 VEH
  SG_ UI_a043_InvalidMapDataOverride: 42|1@1+ (1,0) [0|0] "" X
  SG_ UI_a044_AudioDmesgDspException: 43|1@1+ (1,0) [0|0] "" X
 
-CM_ "UI_autopilotControl was 1019, now 1021";
 BO_ 1021 UI_autopilotControl: 8 CH
  SG_ UI_autopilotControlIndex M : 0|3@1+ (1,0) [0|7] "" X
  SG_ UI_apmv3Branch m1 : 40|3@1+ (1,0) [0|5] "" X
@@ -7305,7 +6946,7 @@ BO_ 1139 UI_VEHNm: 8 VEH
  SG_ UI_nmKeepAwakeReason: 4|4@1+ (1,0) [0|0] "" X
  SG_ UI_wakeupTime: 32|32@1+ (1,0) [0|0] "" X
 
-BO_ 985 UI_gpsVehicleSpeed: 7 VEH
+BO_ 985 UI_gpsVehicleSpeed: 8 CH
  SG_ UI_gpsHDOP: 0|8@1+ (0.1,0) [0|0] "1" X
  SG_ UI_gpsVehicleHeading: 8|16@1+ (0.0078125,0) [0|0] "deg" X
  SG_ UI_gpsVehicleSpeed: 24|16@1+ (0.00390625,0) [0|0] "km/hr" X
@@ -7559,12 +7200,12 @@ BO_ 824 UMC_alertMatrix1: 8 VEH
  SG_ UMC_a023_adcSelfTest: 22|1@1+ (1,0) [0|0] "" X
 
 BO_ 609 VCFRONT_12VBatteryStatus: 8 VEH
- SG_ VCFRONT_IBSAmpHours: 32|14@1- (0.01,0) [0|0] "Ah" X
- SG_ VCFRONT_IBSCurrent: 48|16@1- (0.005,0) [0|0] "A" X
- SG_ VCFRONT_IBSLogRequest: 47|1@1+ (1,0) [0|0] "" X
- SG_ VCFRONT_IBSTemperature: 16|16@1- (0.01,0) [0|0] "degC" X
- SG_ VCFRONT_IBSVoltage: 0|12@1+ (0.00544368,0) [0|22.2919] "V" X
- SG_ VCFRONT_good12VforUpdate: 46|1@1+ (1,0) [0|0] "" X
+ SG_ VCFRONT_12VBatteryIndex M : 0|2@1+ (1,0) [0|4] ""  Receiver
+ SG_ VCFRONT_IBSCurrent m0 : 16|12@1- (0.005,0) [-163.84|163.835] "A"  Receiver
+ SG_ VCFRONT_IBSCurrentRaw m1 : 16|16@1- (0.005,0) [-163.84|163.835] "A"  Receiver
+ SG_ VCFRONT_IBSVoltage m1 : 32|12@1+ (0.005443676098,0) [0|22.29185362131] "V"  Receiver
+ SG_ VCFRONT_IBSAmpHours m2 : 2|14@1- (0.01,0) [-81.92|81.91] "Ah"  Receiver
+ SG_ VCFRONT_IBSTemperature m2 : 8|16@0- (0.1,0) [-327.68|327.66] "degC"  Receiver
 
 BO_ 545 VCFRONT_LVPowerState: 8 VEH
  SG_ VCFRONT_LVPowerStateChecksum: 56|8@1+ (1,0) [0|0] "" X
@@ -8272,9 +7913,6 @@ BO_ 737 VCFRONT_status: 8 VEH
  SG_ VCFRONT_wiperSpeed m0 : 8|4@1+ (1,0) [0|8] "" X
  SG_ VCFRONT_wiperState m0 : 16|4@1+ (1,0) [0|12] "" X
 
-BO_ 1537 VCFRONT_udsResponse: 8 VEH
- SG_ VCFRONT_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
-
 BO_ 929 VCFRONT_vehicleStatus: 8 VEH
  SG_ VCFRONT_12vStatusForDrive: 14|2@1+ (1,0) [0|0] "" X
  SG_ VCFRONT_2RowCenterUnbuckled: 38|2@1+ (1,0) [0|0] "" X
@@ -8736,10 +8374,6 @@ BO_ 962 VCLEFT_switchStatus: 8 VEH
  SG_ VCLEFT_swcRightScrollTicks m1 : 24|6@1- (1,0) [-32|31] "" X
  SG_ VCLEFT_swcRightTiltLeft m1 : 8|2@1+ (1,0) [0|3] "" X
  SG_ VCLEFT_swcRightTiltRight m1 : 10|2@1+ (1,0) [0|3] "" X
-
-BO_ 1571 VCLEFT_udsResponse: 8 VEH
- SG_ VCLEFT_udsResponseData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ VCLEFT_udsResponseData_L: 32|32@0+ (1,0) [0|0] "" X
 
 BO_ 960 VCRIGHT_alertMatrix: 8 VEH
  SG_ VCRIGHT_matrixIndex M: 0|4@1+ (1,0) [0|0] "" X
@@ -9295,10 +8929,6 @@ BO_ 899 VCRIGHT_thsStatus: 8 VEH
  SG_ VCRIGHT_thsSolarLoadVisible: 43|10@1+ (1,0) [0|0] "W/m2" X
  SG_ VCRIGHT_thsTemperature: 1|8@1- (1,-40) [0|0] "degC" X
 
-BO_ 1545 VCRIGHT_udsResponse: 8 VEH
- SG_ VCRIGHT_udsResponseData_H: 0|32@0+ (1,0) [0|0] "" X
- SG_ VCRIGHT_udsResponseData_L: 32|32@0+ (1,0) [0|0] "" X
-
 BO_ 857 VCSEC_BLEDeviceStatus: 7 VEH
  SG_ VCSEC_BLEConnectionCounter: 16|16@1+ (1,0) [0|0] "" X
  SG_ VCSEC_BLEConnectionStatus: 34|3@1+ (1,0) [0|0] "" X
@@ -9520,9 +9150,6 @@ BO_ 793 VCSEC_info: 8 VEH
 BO_ 505 VCSEC_requests: 1 VEH
  SG_ VCSEC_chargePortRequest: 0|2@1+ (1,0) [0|0] "" X
  SG_ VCSEC_driveAttemptedWithoutAuth: 2|1@1+ (1,0) [0|0] "" X
-
-BO_ 1547 VCSEC_udsResponse: 8 VEH
- SG_ VCSEC_udsResponseData: 0|54@0+ (1024,0) [0|0] "" X
 
 CM_ "Generated by Tesla Firmware Decode @ version 923e442d6230241a259eeb3f415525373d40325c";
 
@@ -10511,21 +10138,6 @@ VAL_ 1885 CP_sensorDataSelect 0 "DOOR_COUNTS" 1 "PIN_TEMP" 2 "DOOR" 3 "LATCH" 4 
 VAL_ 1885 CP_inlet1HarnessIdState 1 "INVALID" 0 "SNA" 2 "VALID";
 VAL_ 1885 CP_inlet2HarnessIdState 1 "INVALID" 0 "SNA" 2 "VALID";
 
-CM_ VAL_ 605 CP_UHF_controlState 3 "CP_UHF_CALIBRATE" 6 "CP_UHF_CHECK_RX" 1 "CP_UHF_CONFIG" 10 "CP_UHF_FAULT" 8 "CP_UHF_HANDLE_FOUND" 2 "CP_UHF_IDLE" 0 "CP_UHF_INIT" 4 "CP_UHF_PREPARE_RX" 7 "CP_UHF_READ_RXFIFO" 5 "CP_UHF_RX" 9 "CP_UHF_SLEEP" ;
-CM_ VAL_ 605 CP_chargeCablePresent 0 "CABLE_NOT_PRESENT" 1 "CABLE_PRESENT" ;
-CM_ VAL_ 605 CP_chargeCableState 2 "CHARGE_CABLE_CONNECTED" 1 "CHARGE_CABLE_NOT_CONNECTED" 0 "CHARGE_CABLE_UNKNOWN_SNA" ;
-CM_ VAL_ 605 CP_coldWeatherMode 1 "CP_COLD_WEATHER_LATCH_MITIGATION" 0 "CP_COLD_WEATHER_NONE" ;
-CM_ VAL_ 605 CP_doorControlState 5 "CP_doorClosing" 1 "CP_doorIdle" 0 "CP_doorInit" 2 "CP_doorOpenRequested" 3 "CP_doorOpening" 6 "CP_doorSenseClosed" 4 "CP_doorSenseOpen" ;
-CM_ VAL_ 605 CP_faultLineSensed 0 "FAULT_LINE_CLEARED" 1 "FAULT_LINE_SET" ;
-CM_ VAL_ 605 CP_inductiveDoorState 7 "CP_INDUCTIVE_DOOR_FAULT" 0 "CP_INDUCTIVE_DOOR_INIT" 1 "CP_INDUCTIVE_DOOR_INIT_FROM_CHARGE" 2 "CP_INDUCTIVE_DOOR_INIT_FROM_DRIVE" 4 "CP_INDUCTIVE_DOOR_NOT_PRESENT" 6 "CP_INDUCTIVE_DOOR_OFF_CHARGE" 5 "CP_INDUCTIVE_DOOR_OFF_DRIVE" 3 "CP_INDUCTIVE_DOOR_PRESENT" ;
-CM_ VAL_ 605 CP_inductiveSensorState 7 "CP_INDUCTIVE_SENSOR_CONFIG" 5 "CP_INDUCTIVE_SENSOR_FAULT" 0 "CP_INDUCTIVE_SENSOR_INIT" 3 "CP_INDUCTIVE_SENSOR_PAUSE" 1 "CP_INDUCTIVE_SENSOR_POLL" 6 "CP_INDUCTIVE_SENSOR_RESET" 2 "CP_INDUCTIVE_SENSOR_SHUTDOWN" 4 "CP_INDUCTIVE_SENSOR_WAIT_FOR_INIT" ;
-CM_ VAL_ 605 CP_latch2ControlState 2 "CP_latchDisengageRequested" 4 "CP_latchDisengaged" 3 "CP_latchDisengaging" 5 "CP_latchEngaging" 1 "CP_latchIdle" 0 "CP_latchInit" ;
-CM_ VAL_ 605 CP_latch2State 3 "CP_LATCH_BLOCKING" 1 "CP_LATCH_DISENGAGED" 2 "CP_LATCH_ENGAGED" 0 "CP_LATCH_SNA" ;
-CM_ VAL_ 605 CP_latchControlState 2 "CP_latchDisengageRequested" 4 "CP_latchDisengaged" 3 "CP_latchDisengaging" 5 "CP_latchEngaging" 1 "CP_latchIdle" 0 "CP_latchInit" ;
-CM_ VAL_ 605 CP_latchState 3 "CP_LATCH_BLOCKING" 1 "CP_LATCH_DISENGAGED" 2 "CP_LATCH_ENGAGED" 0 "CP_LATCH_SNA" ;
-CM_ VAL_ 605 CP_ledColor 7 "CP_LEDS_AMBER" 3 "CP_LEDS_BLUE" 9 "CP_LEDS_DEBUG" 6 "CP_LEDS_FLASHING_AMBER" 10 "CP_LEDS_FLASHING_BLUE" 5 "CP_LEDS_FLASHING_GREEN" 2 "CP_LEDS_GREEN" 0 "CP_LEDS_OFF" 8 "CP_LEDS_RAVE" 1 "CP_LEDS_RED" 4 "CP_LEDS_WHITE" ;
-CM_ VAL_ 605 CP_type 1 "CP_TYPE_EURO_IEC" 2 "CP_TYPE_GB" 3 "CP_TYPE_IEC_CCS" 0 "CP_TYPE_US_TESLA" ;
-
 VAL_ 605 CP_UHF_controlState 0 "INIT" 1 "CONFIG" 2 "IDLE" 3 "CALIBRATE" 4 "PREPARE_RX" 5 "RX" 6 "CHECK_RX" 7 "READ_RXFIFO" 8 "HANDLE_FOUND" 9 "SLEEP" 10 "FAULT";
 VAL_ 605 CP_chargeCablePresent 0 "NOT_PRESENT" 1 "PRESENT";
 VAL_ 605 CP_coldWeatherMode 1 "LATCH_MITIGATION" 0 "NONE" ;
@@ -10904,11 +10516,6 @@ VAL_ 535 FC_brand 0 "SNA" 1 "TESLA";
 VAL_ 535 FC_coolingType 0 "SNA" 1 "CONVECTION" 2 "LIQUID";
 VAL_ 535 FC_uiStopType 0 "SNA" 1 "TOGGLE" 2 "MOMENTARY";
 
-CM_ VAL_ 273 GTW_12V0_AUDIO_FILT 16383 "SNA";
-CM_ VAL_ 273 GTW_12V0_FILT 16383 "SNA";
-CM_ VAL_ 273 GTW_WLAN_ANT_DET0 4095 "SNA";
-CM_ VAL_ 273 GTW_WLAN_ANT_DET1 4095 "SNA";
-
 VAL_ 274 GTW_1V1_VEH 4095 "SNA";
 VAL_ 274 GTW_1V5_VEH 4095 "SNA";
 VAL_ 274 GTW_3V3_VEH 4095 "SNA";
@@ -11031,11 +10638,6 @@ VAL_ 813 IBST_infoBuildType 0 "UNKNOWN_BUILD" 1 "PLATFORM_BUILD" 2 "LOCAL_BUILD"
 VAL_ 925 IBST_driverBrakeApply 0 "NOT_INIT_OR_OFF" 1 "BRAKES_NOT_APPLIED" 2 "DRIVER_APPLYING_BRAKES" 3 "FAULT";
 VAL_ 925 IBST_iBoosterStatus 0 "OFF" 1 "INIT" 2 "FAILURE" 3 "DIAGNOSTIC" 4 "ACTIVE_GOOD_CHECK" 5 "READY" 6 "ACTUATION";
 
-CM_ VAL_ 917 OCS1P_matrixIndex 2 "OCS1P_AlertMatrix2";
-
-CM_ VAL_ 789 OCS1P_infoIndex 10 "Mux10" 11 "Mux11" 13 "Mux13" 14 "Mux14" 17 "Mux17" 18 "Mux18" 19 "Mux19" 20 "Mux20";
-CM_ VAL_ 789 OCS1P_infoBuildType 0 "UNKNOWN_BUILD" 1 "PLATFORM_BUILD" 2 "LOCAL_BUILD" 3 "TRACEABLE_CI_BUILD" 4 "MFG_BUILD";
-
 VAL_ 771 OCS1P_classificationHoldState 0 "OFF" 1 "BASIC" 2 "EXTERNAL" 3 "FAULT";
 VAL_ 771 OCS1P_occupantClassification 0 "EMPTY" 1 "OCCUPIED_INHIBIT" 2 "OCCUPIED_ALLOW_SMALL" 3 "OCCUPIED_ALLOW_LARGE" 4 "INIT" 255 "SNA";
 VAL_ 771 OCS1P_occupantClassificationQF 0 "FAULTED" 1 "NOT_FAULTED";
@@ -11151,14 +10753,6 @@ VAL_ 830 PARK_rearRightMiddleSensorState 0 "NO_FAILURE" 1 "PERMANENT_FAILURE" 2 
 VAL_ 830 PARK_rearRightRawDistData 255 "SNA";
 VAL_ 830 PARK_rearRightSensorState 0 "NO_FAILURE" 1 "PERMANENT_FAILURE" 2 "TEMPORARY_FAILURE" 3 "SNA";
 VAL_ 830 PARK_systemStatusRear 0 "DISABLED" 1 "ENABLED" 2 "UNUSED" 3 "SNA";
-
-CM_ "799 is now tpms, not sure what id this is on now";
-CM_ VAL_ 799 PARK_majorVersion 255 "SNA";
-CM_ VAL_ 799 PARK_minorVersion 255 "SNA";
-CM_ VAL_ 799 PARK_serviceRequest 0 "NO_FAILURE" 1 "FAILURE" 2 "UNUSED" 3 "SNA";
-CM_ VAL_ 799 PARK_status 0 "DISABLED" 1 "ENABLED" 2 "TEMPORARY_FAILURE" 3 "SNA";
-CM_ VAL_ 799 PARK_subMinorVersion 255 "SNA";
-CM_ VAL_ 799 PARK_systemDtcPresent 0 "FALSE" 1 "TRUE" 2 "UNUSED" 3 "SNA";
 
 VAL_ 782 PARK_autoCalComplete 0 "INCOMPLETE" 1 "COMPLETE";
 VAL_ 782 PARK_geometryType 0 "MODELS" 1 "MODELS_2" 2 "MODELX" 3 "MODEL3";
@@ -11346,16 +10940,6 @@ VAL_ 1021 UI_donDisableCutin 0 "OFF" 1 "ON";
 VAL_ 1021 UI_donMinGoreWidthForAbortMap 0 "DEFAULT" 1 "0_M" 2 "0P5_M" 3 "1_M" 4 "1P5_M" 5 "2_M" 6 "2P5_M" 7 "3_M" 8 "3P5_M" 9 "4_M" 10 "4P5_M" 11 "5_M";
 VAL_ 1021 UI_donAlcProgGoreAbortThres 0 "DEFAULT" 1 "0P00" 2 "0P05" 3 "0P10" 4 "0P15" 5 "0P20" 6 "0P25" 7 "0P30" 8 "0P35" 9 "0P40";
 VAL_ 1021 UI_donMinGoreWidthForAbortNotMap 0 "DEFAULT" 1 "0_M" 2 "0P5_M" 3 "1_M" 4 "1P5_M" 5 "2_M" 6 "2P5_M" 7 "3_M" 8 "3P5_M" 9 "4_M" 10 "4P5_M" 11 "5_M";
-CM_ VAL_ 1021 UI_alcDisableUltrasonicCheck 0 "OFF" 1 "ON";
-CM_ VAL_ 1021 UI_alcUltrasonicDistance 0 "DEFAULT" 1 "2_M" 2 "2P5_M" 3 "3_M" 4 "3P5_M" 5 "5_M" 6 "4_M" 7 "OFF" 8 "4P5_M";
-CM_ VAL_ 1021 UI_alcUltrasonicWaitTime 0 "DEFAULT" 1 "0P1_S" 3 "0P25_S" 4 "0P5_S" 5 "0P75_S" 6 "1_S" 7 "OFF";
-CM_ VAL_ 1021 UI_alcEgoLeadingReactionAccel 0 "DEFAULT" 1 "LESS" 2 "EVEN_LESS" 3 "OFF";
-CM_ VAL_ 1021 UI_alcMergIntervalRearDHyst 0 "DEFAULT" 1 "LESS" 2 "EVEN_LESS" 3 "OFF";
-CM_ VAL_ 1021 UI_alcMergingIntervalHeadwayHyst 0 "DEFAULT" 1 "LESS" 2 "EVEN_LESS" 3 "OFF";
-CM_ VAL_ 1021 UI_alcAssertivenessRate 0 "DEFAULT" 1 "LESS" 2 "OFF";
-CM_ VAL_ 1021 UI_alcViewRangeSensitivity 0 "DEFAULT" 1 "HIGH" 2 "LOW" 3 "OFF";
-CM_ VAL_ 1021 UI_camBlockLaneCheckDisable 0 "DEFAULT" 1 "DISABLE";
-CM_ VAL_ 1021 UI_camBlockBlurDisable 0 "DEFAULT" 1 "DISABLE";
 
 VAL_ 819 UI_acChargeCurrentLimit 127 "SNA";
 
@@ -11624,13 +11208,7 @@ VAL_ 513 VCFRONT_pumpPowertrainRPMActual 1023 "SNA";
 VAL_ 705 VCFRONT_pumpPowertrainRPMTarget 1023 "SNA";
 VAL_ 705 VCFRONT_radiatorFanRPMTarget 1023 "SNA";
 VAL_ 513 VCFRONT_radiatorFanRPMActual 1023 "SNA";
-CM_ VAL_ 513 VCFRONT_fiveWayValveMode 0 "SERIES" 1 "PARALLEL";
 VAL_ 705 VCFRONT_coolantTempBasedMode 0 "SERIES" 1 "PARALLEL";
-CM_ VAL_ 513 VCFRONT_fiveWayValveAngleActual 1023 "SNA";
-CM_ VAL_ 513 VCFRONT_fiveWayValveAngleTarget 1023 "SNA";
-CM_ VAL_ 513 VCFRONT_fiveWayValveRadBypass 127 "SNA";
-CM_ VAL_ 513 VCFRONT_fiveWayValveState 0 "UNPOWERED" 1 "CALIBRATING" 2 "READY" 3 "FAULT";
-CM_ VAL_ 513 VCFRONT_fiveWayValveDuty 127 "SNA";
 VAL_ 897 VCFRONT_tempRefrigSuction 255 "SNA";
 VAL_ 513 VCFRONT_tempRefrigDischarge 2047 "SNA";
 VAL_ 513 VCFRONT_tempSuperheatActual 1023 "SNA";
@@ -11648,8 +11226,6 @@ VAL_ 705 VCFRONT_activeLouverState 0 "UNCALIBRATED" 1 "CALIB_CLOSE" 2 "CALIB_OPE
 VAL_ 897 VCFRONT_pumpBatteryFETTemp 255 "SNA";
 VAL_ 897 VCFRONT_pumpPowertrainFETTemp 255 "SNA";
 VAL_ 897 VCFRONT_radiatorFanFETTemp 255 "SNA";
-CM_ VAL_ 897 VCFRONT_fiveWayValveRecalReason 0 "UNDEFINED" 1 "MAX_TRAVEL" 2 "GENERAL_FAULT" 3 "CALIBRATION_FAULT_NO_TRAVEL" 4 "SELF_TEST" 5 "MOTOR_FEEDBACK_INTERRUPTED";
-CM_ VAL_ 897 VCFRONT_fiveWayValveCountRange 255 "SNA";
 
 VAL_ 801 VCFRONT_brakeFluidLevel 0 "SNA" 1 "LOW" 2 "NORMAL";
 VAL_ 801 VCFRONT_coolantLevel 0 "NOT_OK" 1 "FILLED";
@@ -11674,7 +11250,6 @@ VAL_ 737 VCFRONT_homelinkCommStatus 0 "SNA" 1 "OFF" 2 "ON" 3 "FAULT";
 VAL_ 737 VCFRONT_pressureRefrigSuction 127 "SNA";
 VAL_ 737 VCFRONT_pressureRefrigDischarge 255 "SNA";
 VAL_ 737 VCFRONT_AS8510Voltage 4095 "SNA";
-CM_ VAL_ 737 VCFRONT_calibratedAS8510Volts 4095 "SNA";
 
 VAL_ 929 VCFRONT_12vStatusForDrive 0 "NOT_READY_FOR_DRIVE_12V" 1 "READY_FOR_DRIVE_12V" 2 "EXIT_DRIVE_REQUESTED_12V";
 VAL_ 929 VCFRONT_2RowCenterUnbuckled 0 "NONE" 1 "OCCUPIED_AND_UNBUCKLED" 2 "SNA";
@@ -11972,3 +11547,66 @@ VAL_ 793 VCSEC_infoAssemblyId 1 "ASSEMBLY1" 255 "ASSEMBLY_SNA";
 
 VAL_ 505 VCSEC_chargePortRequest 0 "NONE" 1 "OPEN" 2 "CLOSE" 3 "SNA";
 
+VAL_ 615 DI_massConfidence 1 "MASS_CONFIDED" 0 "MASS_NOT_CONFIDED" ;
+VAL_ 615 DI_relativeTireTreadDepth -32 "SNA" ;
+VAL_ 615 DI_tireFitment 3 "FITMENT_SNA" 0 "FITMENT_SQUARE" 1 "FITMENT_STAGGERED" ;
+VAL_ 615 DI_trailerDetected 1 "TRAILER_DETECTED" 0 "TRAILER_NOT_DETECTED" ;
+
+VAL_ 850 BMS_energyBuffer 255 "SNA" ;
+VAL_ 850 BMS_energyToChargeComplete 2047 "SNA" ;
+VAL_ 850 BMS_expectedEnergyRemaining 2047 "SNA" ;
+VAL_ 850 BMS_idealEnergyRemaining 2047 "SNA" ;
+VAL_ 850 BMS_nominalEnergyRemaining 2047 "SNA" ;
+VAL_ 850 BMS_nominalFullPackEnergy 2047 "SNA" ;
+
+VAL_ 317 CP_chargeShutdownRequest 2 "EMERGENCY_SHUTDOWN_REQUESTED" 1 "GRACEFUL_SHUTDOWN_REQUESTED" 0 "NO_SHUTDOWN_REQUESTED" ;
+VAL_ 317 CP_evseChargeType 2 "AC_CHARGER_PRESENT" 1 "DC_CHARGER_PRESENT" 0 "NO_CHARGER_PRESENT" ;
+VAL_ 317 CP_hvChargeStatus 1 "CP_CHARGE_CONNECTED" 5 "CP_CHARGE_ENABLED" 6 "CP_CHARGE_FAULTED" 0 "CP_CHARGE_INACTIVE" 2 "CP_CHARGE_STANDBY" 4 "CP_EVSE_TEST_PASSED" 3 "CP_EXT_EVSE_TEST_ACTIVE" ;
+
+VAL_ 390 DIS_frontAxleSpeed -32768 "SNA";
+VAL_ 390 DIS_frontTorqueActual -4096 "SNA";
+VAL_ 390 DIS_frontTorqueCommand -4096 "SNA";
+
+VAL_ 472 DIS_axleSpeed -32768 "SNA";
+VAL_ 472 DIS_torqueActual -4096 "SNA";
+VAL_ 472 DIS_torqueCommand -4096 "SNA";
+
+VAL_ 917 DI_oilPumpCurrent 255 "SNA";
+VAL_ 917 DI_oilPumpCurrentSensorOffset 255 "SNA";
+VAL_ 917 DI_oilPumpFlowActual 255 "SNA";
+VAL_ 917 DI_oilPumpFlowTarget 255 "SNA";
+VAL_ 917 DI_oilPumpFluidT 255 "SNA";
+VAL_ 917 DI_oilPumpPcbT 255 "SNA";
+VAL_ 917 DI_oilPumpState 0 "STANDBY" 1 "ENABLE" 2 "COLD_STARTUP" 6 "FAULTED" 7 "SNA";
+VAL_ 917 DI_oilPumpVoltage 255 "SNA";
+
+VAL_ 918 DI_frontOilPumpCurrent 255 "SNA";
+VAL_ 918 DI_frontOilPumpCurrentSensorOffset 255 "SNA";
+VAL_ 918 DI_frontOilPumpFlowActual 255 "SNA";
+VAL_ 918 DI_frontOilPumpFlowTarget 255 "SNA";
+VAL_ 918 DI_frontOilPumpFluidT 255 "SNA";
+VAL_ 918 DI_frontOilPumpPcbT 255 "SNA";
+VAL_ 918 DI_frontOilPumpState 0 "STANDBY" 1 "ENABLE" 2 "COLD_STARTUP" 6 "FAULTED" 7 "SNA";
+VAL_ 918 DI_frontOilPumpVoltage 255 "SNA";
+
+VAL_ 341 ESP_wheelRotationRR 3 "UNKNOWN" 2 "STANDSTILL" 1 "BACKWARD" 0 "FORWARD" ;
+VAL_ 341 ESP_wheelRotationRL 3 "UNKNOWN" 2 "STANDSTILL" 1 "BACKWARD" 0 "FORWARD" ;
+VAL_ 341 ESP_wheelRotationFR 3 "UNKNOWN" 2 "STANDSTILL" 1 "BACKWARD" 0 "FORWARD" ;
+VAL_ 341 ESP_wheelRotationFL 3 "UNKNOWN" 2 "STANDSTILL" 1 "BACKWARD" 0 "FORWARD" ;
+VAL_ 341 ESP_wheelRotationQF 1 "VALID" 0 "INVALID" ;
+VAL_ 341 ESP_standstillStatus 1 "STANDSTILL" 0 "ROLLING" ;
+VAL_ 341 ESP_vehicleSpeed 1023 "SNA" ;
+
+VAL_ 373 ESP_wheelSpeedRR 8191 "SNA";
+VAL_ 373 ESP_wheelSpeedRL 8191 "SNA";
+VAL_ 373 ESP_wheelSpeedFR 8191 "SNA";
+VAL_ 373 ESP_wheelSpeedFL 8191 "SNA";
+
+VAL_ 389 ESP_brakeTorqueFL 4095 "SNA" ;
+VAL_ 389 ESP_brakeTorqueFR 4095 "SNA" ;
+VAL_ 389 ESP_brakeTorqueRL 4095 "SNA" ;
+VAL_ 389 ESP_brakeTorqueRR 4095 "SNA" ;
+VAL_ 389 ESP_brakeTorqueQF 1 "IN_SPEC" 0 "UNDEFINABLE_ACCURACY" ;
+
+VAL_ 553 SCCM_gearStalkStatus 0 "IDLE" 1 "UP_1" 2 "UP_2" 3 "DOWN_1" 4 "DOWN_2" 5 "SNA";
+VAL_ 553 SCCM_parkButtonStatus 0 "NOT_PRESSED" 1 "1ST_DETENT" 2 "2ND_DETENT" 3 "SNA";

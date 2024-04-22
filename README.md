@@ -40,8 +40,27 @@ own DBC file at https://github.com/joshwardell/model3dbc.
 This is not an official document from Tesla, and there's no guaranty this data will
 work for your car.
 
-*Use at your own risk!*
+_Use at your own risk!_
 
 And never, ever, attempt to use this data to write messages to the CANbus. The intent
 of this project is simply to read the data and build nice displays, not control and/or
-circumvent the car or any of its systems.
+circumvent the car's security features or any of its systems.
+
+## Change Log
+
+A rough history of updates to the DBC file.
+
+- Oct 2019: Added unix and system time signals"
+- May 2020: Added many definitions adapted from joshwardell's file"
+- Jul 2020: Energy buffers update for 2020.20.X"
+- Jul 2020: Updates for 2020.24.X"
+- Nov 2020: Updates for 2020.40.X, UI_status moved from 12 to 851"
+- Oct 2021: Updates for 2021.24.4"
+- Apr 2024: Big update with partial support for stuff has changed in the last few
+  few years. Also a big cleanup of dead code, and I'm now running a validator that
+  found some syntax issues my home built DBC parser didn't care about.
+
+## Todo
+
+- Figure out what up with inverter temp; my old ones still for me, but others have them at 1493(R) and 1366(F) now
+- The brake temps don't work anymore
